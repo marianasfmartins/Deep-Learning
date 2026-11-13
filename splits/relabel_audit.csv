@@ -1,0 +1,659 @@
+filename,original_class_id,original_description,suggested_class_id,suggested_description,applied_class_id,applied_description,inconsistency_score,consensus_ratio,action
+image_007081.JPEG,n03388043,fountain,n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_000503.JPEG,n04596742,wok,n02793495,barn,n02793495,barn,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_003029.JPEG,n03980874,poncho,n03796401,moving van,n03796401,moving van,1.0,1.0,applied training-only neighbor suggestion
+image_003490.JPEG,n06596364,comic book,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_052833.JPEG,n02837789,"bikini, two-piece",n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_014029.JPEG,n03662601,lifeboat,n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.8,applied training-only neighbor suggestion
+image_027013.JPEG,n03042490,cliff dwelling,n03637318,"lampshade, lamp shade",n03637318,"lampshade, lamp shade",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_015084.JPEG,n01768244,trilobite,n03584254,iPod,n03584254,iPod,1.0,0.8,applied training-only neighbor suggestion
+image_009142.JPEG,n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_018495.JPEG,n07579787,plate,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_004049.JPEG,n07920052,espresso,n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001112.JPEG,n07695742,pretzel,n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000819.JPEG,n03404251,fur coat,n07749582,lemon,n07749582,lemon,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_007618.JPEG,n07695742,pretzel,n02843684,birdhouse,n02843684,birdhouse,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_045628.JPEG,n02808440,"bathtub, bathing tub, bath, tub",n07715103,cauliflower,n07715103,cauliflower,1.0,0.8,applied training-only neighbor suggestion
+image_023066.JPEG,n01770393,scorpion,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_002129.JPEG,n04376876,syringe,n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_042466.JPEG,n04251144,snorkel,n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_037600.JPEG,n04285008,"sports car, sport car",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_010248.JPEG,n02123045,"tabby, tabby cat",n02124075,Egyptian cat,n02124075,Egyptian cat,0.9333333333333333,0.9333333333333333,applied training-only neighbor suggestion
+image_003673.JPEG,n02002724,"black stork, Ciconia nigra",n01910747,jellyfish,n01910747,jellyfish,1.0,1.0,applied training-only neighbor suggestion
+image_055004.JPEG,n04008634,"projectile, missile",n02793495,barn,n02793495,barn,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000863.JPEG,n02909870,"bucket, pail",n07749582,lemon,n07749582,lemon,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003359.JPEG,n03770439,"miniskirt, mini",n01910747,jellyfish,n01910747,jellyfish,1.0,0.8,applied training-only neighbor suggestion
+image_023997.JPEG,n03649909,"lawn mower, mower",n04133789,sandal,n04133789,sandal,1.0,0.8,applied training-only neighbor suggestion
+image_025009.JPEG,n04417672,"thatch, thatched roof",n02423022,gazelle,n02423022,gazelle,1.0,1.0,applied training-only neighbor suggestion
+image_016496.JPEG,n03388043,fountain,n09193705,alp,n09193705,alp,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_013730.JPEG,n07747607,orange,n07749582,lemon,n07749582,lemon,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_006178.JPEG,n03763968,military uniform,n04532670,viaduct,n04532670,viaduct,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_013575.JPEG,n07871810,"meat loaf, meatloaf",n07747607,orange,n07747607,orange,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_019076.JPEG,n03544143,hourglass,n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_053312.JPEG,n04275548,"spider web, spider's web",n03544143,hourglass,n03544143,hourglass,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_023689.JPEG,n04133789,sandal,n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_033965.JPEG,n02423022,gazelle,n01917289,brain coral,n01917289,brain coral,1.0,0.8,applied training-only neighbor suggestion
+image_038706.JPEG,n03814639,neck brace,n03544143,hourglass,n03544143,hourglass,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_038373.JPEG,n09256479,coral reef,n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_028608.JPEG,n04259630,sombrero,n04146614,school bus,n04146614,school bus,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_005422.JPEG,n03796401,moving van,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001188.JPEG,n04540053,volleyball,n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,1.0,applied training-only neighbor suggestion
+image_047184.JPEG,n03201208,"dining table, board",n07583066,guacamole,n07583066,guacamole,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_043537.JPEG,n04597913,wooden spoon,n02815834,beaker,n02815834,beaker,1.0,0.8,applied training-only neighbor suggestion
+image_057435.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n04146614,school bus,n04146614,school bus,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_039513.JPEG,n04099969,"rocking chair, rocker",n04501370,turnstile,n04501370,turnstile,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_004096.JPEG,n02410509,bison,n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001461.JPEG,n01774384,"black widow, Latrodectus mactans",n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,1.0,applied training-only neighbor suggestion
+image_009112.JPEG,n01855672,goose,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_032255.JPEG,n02927161,"butcher shop, meat market",n06596364,comic book,n06596364,comic book,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001731.JPEG,n02948072,"candle, taper, wax light",n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_039746.JPEG,n07871810,"meat loaf, meatloaf",n04099969,"rocking chair, rocker",n04099969,"rocking chair, rocker",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_028244.JPEG,n03930313,"picket fence, paling",n03393912,freight car,n03393912,freight car,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_027034.JPEG,n03637318,"lampshade, lamp shade",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_042105.JPEG,n02948072,"candle, taper, wax light",n07720875,bell pepper,n07720875,bell pepper,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_013710.JPEG,n07749582,lemon,n07747607,orange,n07747607,orange,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_049054.JPEG,n03424325,"gasmask, respirator, gas helmet",n02917067,"bullet train, bullet",n02917067,"bullet train, bullet",1.0,0.8,applied training-only neighbor suggestion
+image_024258.JPEG,n04398044,teapot,n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_003758.JPEG,n03930313,"picket fence, paling",n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_016241.JPEG,n02423022,gazelle,n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000728.JPEG,n03400231,"frying pan, frypan, skillet",n07749582,lemon,n07749582,lemon,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_051740.JPEG,n03670208,"limousine, limo",n03662601,lifeboat,n03662601,lifeboat,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025028.JPEG,n02988304,CD player,n02423022,gazelle,n02423022,gazelle,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_043090.JPEG,n03179701,desk,n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_046000.JPEG,n03250847,drumstick,n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009251.JPEG,n03992509,potter's wheel,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_025524.JPEG,n03838899,"oboe, hautboy, hautbois",n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.8,applied training-only neighbor suggestion
+image_014851.JPEG,n02236044,"mantis, mantid",n03584254,iPod,n03584254,iPod,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_051149.JPEG,n03100240,convertible,n04285008,"sports car, sport car",n04285008,"sports car, sport car",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_005388.JPEG,n04023962,"punching bag, punch bag, punching ball, punchball",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_037146.JPEG,n02906734,broom,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_036396.JPEG,n02321529,"sea cucumber, holothurian",n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,0.8,applied training-only neighbor suggestion
+image_027905.JPEG,n03126707,crane,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000190.JPEG,n02281406,"sulphur butterfly, sulfur butterfly",n02793495,barn,n02793495,barn,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006547.JPEG,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n04532670,viaduct,n04532670,viaduct,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_035836.JPEG,n02950826,cannon,n04465501,tractor,n04465501,tractor,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_054354.JPEG,n04074963,"remote control, remote",n02123394,Persian cat,n02123394,Persian cat,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_002504.JPEG,n03014705,chest,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_029543.JPEG,n04074963,"remote control, remote",n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_043820.JPEG,n02099712,Labrador retriever,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_011028.JPEG,n04376876,syringe,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001702.JPEG,n03706229,magnetic compass,n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_016201.JPEG,n03891332,parking meter,n09193705,alp,n09193705,alp,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_006036.JPEG,n03992509,potter's wheel,n07920052,espresso,n07920052,espresso,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_006123.JPEG,n03160309,"dam, dike, dyke",n04532670,viaduct,n04532670,viaduct,1.0,1.0,applied training-only neighbor suggestion
+image_012925.JPEG,n02769748,"backpack, back pack, knapsack, packsack, rucksack, haversack",n03854065,"organ, pipe organ",n03854065,"organ, pipe organ",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_053834.JPEG,n02410509,bison,n03085013,"computer keyboard, keypad",n03085013,"computer keyboard, keypad",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_002891.JPEG,n03599486,"jinrikisha, ricksha, rickshaw",n03796401,moving van,n03796401,moving van,1.0,0.8,applied training-only neighbor suggestion
+image_013425.JPEG,n02437312,"Arabian camel, dromedary, Camelus dromedarius",n07747607,orange,n07747607,orange,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_005256.JPEG,n04133789,sandal,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_047598.JPEG,n02843684,birdhouse,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020229.JPEG,n04099969,"rocking chair, rocker",n02699494,altar,n02699494,altar,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_029384.JPEG,n02909870,"bucket, pail",n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,1.0,applied training-only neighbor suggestion
+image_034137.JPEG,n03970156,"plunger, plumber's helper",n07715103,cauliflower,n07715103,cauliflower,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_034769.JPEG,n02988304,CD player,n04149813,scoreboard,n04149813,scoreboard,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001036.JPEG,n03662601,lifeboat,n07749582,lemon,n07749582,lemon,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_028806.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n04146614,school bus,n04146614,school bus,1.0,0.8,applied training-only neighbor suggestion
+image_052375.JPEG,n02841315,"binoculars, field glasses, opera glasses",n02094433,Yorkshire terrier,n02094433,Yorkshire terrier,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_004980.JPEG,n03404251,fur coat,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_054333.JPEG,n04398044,teapot,n04074963,"remote control, remote",n04074963,"remote control, remote",1.0,0.8,applied training-only neighbor suggestion
+image_013970.JPEG,n07873807,"pizza, pizza pie",n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009057.JPEG,n02788148,"bannister, banister, balustrade, balusters, handrail",n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_008811.JPEG,n01855672,goose,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_047474.JPEG,n02099601,golden retriever,n02129165,"lion, king of beasts, Panthera leo",n02129165,"lion, king of beasts, Panthera leo",1.0,0.8,applied training-only neighbor suggestion
+image_034933.JPEG,n07614500,"ice cream, icecream",n07920052,espresso,n07920052,espresso,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_007085.JPEG,n02129165,"lion, king of beasts, Panthera leo",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_008970.JPEG,n07873807,"pizza, pizza pie",n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_013496.JPEG,n07720875,bell pepper,n07747607,orange,n07747607,orange,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025010.JPEG,n02132136,"brown bear, bruin, Ursus arctos",n02423022,gazelle,n02423022,gazelle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_039401.JPEG,n03544143,hourglass,n04099969,"rocking chair, rocker",n04099969,"rocking chair, rocker",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_038731.JPEG,n04596742,wok,n03544143,hourglass,n03544143,hourglass,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_025147.JPEG,n03255030,dumbbell,n02423022,gazelle,n02423022,gazelle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_047111.JPEG,n04179913,sewing machine,n07583066,guacamole,n07583066,guacamole,1.0,0.8,applied training-only neighbor suggestion
+image_014348.JPEG,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.8,applied training-only neighbor suggestion
+image_058511.JPEG,n03447447,gondola,n03662601,lifeboat,n03662601,lifeboat,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_035200.JPEG,n07614500,"ice cream, icecream",n07920052,espresso,n07920052,espresso,1.0,0.8,applied training-only neighbor suggestion
+image_015245.JPEG,n03930313,"picket fence, paling",n03584254,iPod,n03584254,iPod,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_053169.JPEG,n07715103,cauliflower,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_013902.JPEG,n02415577,"bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis",n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.8,applied training-only neighbor suggestion
+image_025869.JPEG,n03100240,convertible,n03424325,"gasmask, respirator, gas helmet",n03424325,"gasmask, respirator, gas helmet",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_008376.JPEG,n04149813,scoreboard,n04501370,turnstile,n04501370,turnstile,1.0,0.8,applied training-only neighbor suggestion
+image_047570.JPEG,n01855672,goose,n02129165,"lion, king of beasts, Panthera leo",n02129165,"lion, king of beasts, Panthera leo",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_002487.JPEG,n12267677,acorn,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.8,applied training-only neighbor suggestion
+image_033159.JPEG,n07614500,"ice cream, icecream",n03662601,lifeboat,n03662601,lifeboat,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_048955.JPEG,n07753592,banana,n02056570,"king penguin, Aptenodytes patagonica",n02056570,"king penguin, Aptenodytes patagonica",1.0,1.0,applied training-only neighbor suggestion
+image_055058.JPEG,n04008634,"projectile, missile",n03837869,obelisk,n03837869,obelisk,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_029428.JPEG,n01443537,"goldfish, Carassius auratus",n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_045713.JPEG,n02699494,altar,n07715103,cauliflower,n07715103,cauliflower,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_044046.JPEG,n04399382,"teddy, teddy bear",n07720875,bell pepper,n07720875,bell pepper,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_022516.JPEG,n03584254,iPod,n04540053,volleyball,n04540053,volleyball,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_050127.JPEG,n04532670,viaduct,n03763968,military uniform,n03763968,military uniform,1.0,0.8,applied training-only neighbor suggestion
+image_050880.JPEG,n03026506,Christmas stocking,n07720875,bell pepper,n07720875,bell pepper,1.0,0.8,applied training-only neighbor suggestion
+image_028582.JPEG,n02504458,"African elephant, Loxodonta africana",n04146614,school bus,n04146614,school bus,1.0,0.8,applied training-only neighbor suggestion
+image_001405.JPEG,n04133789,sandal,n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000931.JPEG,n04596742,wok,n07749582,lemon,n07749582,lemon,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_059020.JPEG,n02795169,"barrel, cask",n02099712,Labrador retriever,n02099712,Labrador retriever,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001805.JPEG,n03404251,fur coat,n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005433.JPEG,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_001912.JPEG,n03400231,"frying pan, frypan, skillet",n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_007269.JPEG,n02837789,"bikini, two-piece",n02843684,birdhouse,n02843684,birdhouse,1.0,0.8,applied training-only neighbor suggestion
+image_016517.JPEG,n02403003,ox,n02190166,fly,n02190166,fly,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_008304.JPEG,n01855672,goose,n04501370,turnstile,n04501370,turnstile,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_001858.JPEG,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_022415.JPEG,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n04540053,volleyball,n04540053,volleyball,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_003523.JPEG,n04285008,"sports car, sport car",n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_018904.JPEG,n01641577,"bullfrog, Rana catesbeiana",n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_009614.JPEG,n07715103,cauliflower,n03937543,pill bottle,n03937543,pill bottle,1.0,0.8,applied training-only neighbor suggestion
+image_025501.JPEG,n03838899,"oboe, hautboy, hautbois",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8,applied training-only neighbor suggestion
+image_022366.JPEG,n04540053,volleyball,n03733131,maypole,n03733131,maypole,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_000500.JPEG,n01917289,brain coral,n02793495,barn,n02793495,barn,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_026800.JPEG,n02504458,"African elephant, Loxodonta africana",n02823428,beer bottle,n02823428,beer bottle,1.0,0.8,applied training-only neighbor suggestion
+image_019465.JPEG,n02808440,"bathtub, bathing tub, bath, tub",n07920052,espresso,n07920052,espresso,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_012772.JPEG,n03854065,"organ, pipe organ",n02699494,altar,n02699494,altar,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_024817.JPEG,n04118538,rugby ball,n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_047206.JPEG,n03770439,"miniskirt, mini",n04133789,sandal,n04133789,sandal,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_041435.JPEG,n04597913,wooden spoon,n07920052,espresso,n07920052,espresso,1.0,1.0,applied training-only neighbor suggestion
+image_033828.JPEG,n07749582,lemon,n01917289,brain coral,n01917289,brain coral,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_032389.JPEG,n03584254,iPod,n06596364,comic book,n06596364,comic book,1.0,1.0,applied training-only neighbor suggestion
+image_037728.JPEG,n09256479,coral reef,n01917289,brain coral,n01917289,brain coral,1.0,0.8,applied training-only neighbor suggestion
+image_000329.JPEG,n03042490,cliff dwelling,n02793495,barn,n02793495,barn,1.0,0.8,applied training-only neighbor suggestion
+image_024993.JPEG,n01950731,"sea slug, nudibranch",n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_001654.JPEG,n03814639,neck brace,n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_018408.JPEG,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_048472.JPEG,n02281406,"sulphur butterfly, sulfur butterfly",n03837869,obelisk,n03837869,obelisk,1.0,0.8,applied training-only neighbor suggestion
+image_018300.JPEG,n02410509,bison,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_039888.JPEG,n02123045,"tabby, tabby cat",n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",1.0,0.8,applied training-only neighbor suggestion
+image_016248.JPEG,n04149813,scoreboard,n09193705,alp,n09193705,alp,1.0,0.8,applied training-only neighbor suggestion
+image_013904.JPEG,n03970156,"plunger, plumber's helper",n02793495,barn,n02793495,barn,1.0,0.8,applied training-only neighbor suggestion
+image_024754.JPEG,n03250847,drumstick,n02423022,gazelle,n02423022,gazelle,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_038863.JPEG,n04540053,volleyball,n03544143,hourglass,n03544143,hourglass,1.0,0.8,applied training-only neighbor suggestion
+image_018840.JPEG,n02927161,"butcher shop, meat market",n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.8,applied training-only neighbor suggestion
+image_013873.JPEG,n04417672,"thatch, thatched roof",n02793495,barn,n02793495,barn,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_000968.JPEG,n03662601,lifeboat,n07749582,lemon,n07749582,lemon,1.0,0.8,applied training-only neighbor suggestion
+image_000935.JPEG,n04456115,torch,n07749582,lemon,n07749582,lemon,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_031758.JPEG,n04398044,teapot,n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.8,applied training-only neighbor suggestion
+image_045681.JPEG,n02123045,"tabby, tabby cat",n07715103,cauliflower,n07715103,cauliflower,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_043801.JPEG,n04507155,umbrella,n02099712,Labrador retriever,n02099712,Labrador retriever,1.0,1.0,applied training-only neighbor suggestion
+image_034731.JPEG,n01629819,"European fire salamander, Salamandra salamandra",n04149813,scoreboard,n04149813,scoreboard,1.0,1.0,applied training-only neighbor suggestion
+image_005666.JPEG,n03201208,"dining table, board",n03992509,potter's wheel,n03992509,potter's wheel,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_016148.JPEG,n09428293,"seashore, coast, seacoast, sea-coast",n09193705,alp,n09193705,alp,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_019404.JPEG,n02808440,"bathtub, bathing tub, bath, tub",n02699494,altar,n02699494,altar,1.0,0.8,applied training-only neighbor suggestion
+image_043348.JPEG,n02815834,beaker,n03992509,potter's wheel,n03992509,potter's wheel,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006474.JPEG,n07720875,bell pepper,n04532670,viaduct,n04532670,viaduct,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_006725.JPEG,n02123045,"tabby, tabby cat",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8,applied training-only neighbor suggestion
+image_054663.JPEG,n03160309,"dam, dike, dyke",n04532670,viaduct,n04532670,viaduct,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_025173.JPEG,n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n02423022,gazelle,n02423022,gazelle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_005305.JPEG,n01950731,"sea slug, nudibranch",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_057523.JPEG,n01784675,centipede,n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_008896.JPEG,n02730930,apron,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_002574.JPEG,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.8,applied training-only neighbor suggestion
+image_029952.JPEG,n07875152,potpie,n07579787,plate,n07579787,plate,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006405.JPEG,n07747607,orange,n04532670,viaduct,n04532670,viaduct,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_011727.JPEG,n04456115,torch,n01944390,snail,n01944390,snail,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_002849.JPEG,n09332890,"lakeside, lakeshore",n03796401,moving van,n03796401,moving van,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_029041.JPEG,n02268443,"dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_016216.JPEG,n04562935,water tower,n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020002.JPEG,n04399382,"teddy, teddy bear",n02699494,altar,n02699494,altar,1.0,0.8,applied training-only neighbor suggestion
+image_005811.JPEG,n04254777,sock,n03992509,potter's wheel,n03992509,potter's wheel,1.0,0.8,applied training-only neighbor suggestion
+image_042288.JPEG,n04251144,snorkel,n03424325,"gasmask, respirator, gas helmet",n03424325,"gasmask, respirator, gas helmet",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_014947.JPEG,n02504458,"African elephant, Loxodonta africana",n03584254,iPod,n03584254,iPod,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_011057.JPEG,n04376876,syringe,n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025522.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025235.JPEG,n01698640,"American alligator, Alligator mississipiensis",n02423022,gazelle,n02423022,gazelle,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_001145.JPEG,n02129165,"lion, king of beasts, Panthera leo",n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_035928.JPEG,n01917289,brain coral,n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_006631.JPEG,n03976657,pole,n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_019831.JPEG,n02423022,gazelle,n02699494,altar,n02699494,altar,1.0,0.8,applied training-only neighbor suggestion
+image_029288.JPEG,n02892201,"brass, memorial tablet, plaque",n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000054.JPEG,n04560804,water jug,n02793495,barn,n02793495,barn,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_002561.JPEG,n04366367,suspension bridge,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_033175.JPEG,n03089624,"confectionery, confectionary, candy store",n03662601,lifeboat,n03662601,lifeboat,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_018640.JPEG,n02106662,"German shepherd, German shepherd dog, German police dog, alsatian",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_009533.JPEG,n02909870,"bucket, pail",n03937543,pill bottle,n03937543,pill bottle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_025267.JPEG,n03837869,obelisk,n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_001811.JPEG,n02002724,"black stork, Ciconia nigra",n07920052,espresso,n07920052,espresso,1.0,0.8,applied training-only neighbor suggestion
+image_007529.JPEG,n02843684,birdhouse,n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_001060.JPEG,n03404251,fur coat,n07749582,lemon,n07749582,lemon,1.0,0.8,applied training-only neighbor suggestion
+image_026435.JPEG,n02823428,beer bottle,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_030265.JPEG,n07875152,potpie,n07920052,espresso,n07920052,espresso,1.0,0.8,applied training-only neighbor suggestion
+image_043804.JPEG,n02123394,Persian cat,n02099712,Labrador retriever,n02099712,Labrador retriever,1.0,0.8,applied training-only neighbor suggestion
+image_018289.JPEG,n03026506,Christmas stocking,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_007391.JPEG,n04311004,steel arch bridge,n02843684,birdhouse,n02843684,birdhouse,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001003.JPEG,n02699494,altar,n07749582,lemon,n07749582,lemon,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009133.JPEG,n09256479,coral reef,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8,applied training-only neighbor suggestion
+image_034830.JPEG,n01784675,centipede,n04149813,scoreboard,n04149813,scoreboard,1.0,0.8,applied training-only neighbor suggestion
+image_035052.JPEG,n07614500,"ice cream, icecream",n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_052238.JPEG,n03250847,drumstick,n02094433,Yorkshire terrier,n02094433,Yorkshire terrier,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_056579.JPEG,n04560804,water jug,n07734744,mushroom,n07734744,mushroom,1.0,0.8,applied training-only neighbor suggestion
+image_014886.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n03584254,iPod,n03584254,iPod,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003755.JPEG,n02281406,"sulphur butterfly, sulfur butterfly",n01910747,jellyfish,n01910747,jellyfish,1.0,0.8,applied training-only neighbor suggestion
+image_019925.JPEG,n09193705,alp,n02699494,altar,n02699494,altar,1.0,0.8,applied training-only neighbor suggestion
+image_009126.JPEG,n02666196,abacus,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_033804.JPEG,n09256479,coral reef,n01917289,brain coral,n01917289,brain coral,1.0,1.0,applied training-only neighbor suggestion
+image_003924.JPEG,n03388043,fountain,n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_046445.JPEG,n03837869,obelisk,n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003543.JPEG,n02669723,"academic gown, academic robe, judge's robe",n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_002104.JPEG,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001864.JPEG,n03992509,potter's wheel,n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025112.JPEG,n03250847,drumstick,n02423022,gazelle,n02423022,gazelle,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_000826.JPEG,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n07749582,lemon,n07749582,lemon,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_031753.JPEG,n02132136,"brown bear, bruin, Ursus arctos",n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_037564.JPEG,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_029750.JPEG,n03837869,obelisk,n04399382,"teddy, teddy bear",n04399382,"teddy, teddy bear",1.0,0.8,applied training-only neighbor suggestion
+image_003385.JPEG,n02883205,"bow tie, bow-tie, bowtie",n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_021145.JPEG,n02124075,Egyptian cat,n02123045,"tabby, tabby cat",n02123045,"tabby, tabby cat",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_032021.JPEG,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_022828.JPEG,n02669723,"academic gown, academic robe, judge's robe",n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_026821.JPEG,n02437312,"Arabian camel, dromedary, Camelus dromedarius",n02823428,beer bottle,n02823428,beer bottle,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_049177.JPEG,n01742172,"boa constrictor, Constrictor constrictor",n02917067,"bullet train, bullet",n02917067,"bullet train, bullet",1.0,0.8,applied training-only neighbor suggestion
+image_024861.JPEG,n03100240,convertible,n02423022,gazelle,n02423022,gazelle,1.0,1.0,applied training-only neighbor suggestion
+image_051009.JPEG,n03100240,convertible,n04285008,"sports car, sport car",n04285008,"sports car, sport car",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_001373.JPEG,n07920052,espresso,n03733131,maypole,n03733131,maypole,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009014.JPEG,n02002724,"black stork, Ciconia nigra",n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8,applied training-only neighbor suggestion
+image_044296.JPEG,n07871810,"meat loaf, meatloaf",n07720875,bell pepper,n07720875,bell pepper,1.0,0.8,applied training-only neighbor suggestion
+image_010824.JPEG,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_043953.JPEG,n07614500,"ice cream, icecream",n07720875,bell pepper,n07720875,bell pepper,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_033429.JPEG,n02793495,barn,n03662601,lifeboat,n03662601,lifeboat,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_028752.JPEG,n01770393,scorpion,n04146614,school bus,n04146614,school bus,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_034071.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n01917289,brain coral,n01917289,brain coral,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_030797.JPEG,n02909870,"bucket, pail",n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_032377.JPEG,n01698640,"American alligator, Alligator mississipiensis",n06596364,comic book,n06596364,comic book,1.0,1.0,applied training-only neighbor suggestion
+image_016728.JPEG,n02410509,bison,n02190166,fly,n02190166,fly,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006490.JPEG,n03980874,poncho,n04532670,viaduct,n04532670,viaduct,1.0,0.8,applied training-only neighbor suggestion
+image_053107.JPEG,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n02423022,gazelle,n02423022,gazelle,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_012810.JPEG,n03854065,"organ, pipe organ",n03085013,"computer keyboard, keypad",n03085013,"computer keyboard, keypad",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_019713.JPEG,n02808440,"bathtub, bathing tub, bath, tub",n03584254,iPod,n03584254,iPod,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_036185.JPEG,n02074367,"dugong, Dugong dugon",n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.8,applied training-only neighbor suggestion
+image_014131.JPEG,n02883205,"bow tie, bow-tie, bowtie",n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_040258.JPEG,n03026506,Christmas stocking,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_034665.JPEG,n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n04149813,scoreboard,n04149813,scoreboard,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_053968.JPEG,n03662601,lifeboat,n03085013,"computer keyboard, keypad",n03085013,"computer keyboard, keypad",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_018196.JPEG,n04251144,snorkel,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.8,applied training-only neighbor suggestion
+image_037562.JPEG,n01855672,goose,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020013.JPEG,n03902125,"pay-phone, pay-station",n02699494,altar,n02699494,altar,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_037661.JPEG,n09256479,coral reef,n01917289,brain coral,n01917289,brain coral,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_002767.JPEG,n04259630,sombrero,n03796401,moving van,n03796401,moving van,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_012372.JPEG,n02236044,"mantis, mantid",n07749582,lemon,n07749582,lemon,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_003712.JPEG,n03670208,"limousine, limo",n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_032686.JPEG,n02788148,"bannister, banister, balustrade, balusters, handrail",n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001796.JPEG,n04486054,triumphal arch,n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_020695.JPEG,n03733131,maypole,n09246464,"cliff, drop, drop-off",n09246464,"cliff, drop, drop-off",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_014564.JPEG,n04486054,triumphal arch,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_032003.JPEG,n02106662,"German shepherd, German shepherd dog, German police dog, alsatian",n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_039097.JPEG,n03026506,Christmas stocking,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_003631.JPEG,n02268443,"dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk",n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_051059.JPEG,n03100240,convertible,n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_012978.JPEG,n03930313,"picket fence, paling",n03854065,"organ, pipe organ",n03854065,"organ, pipe organ",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_042412.JPEG,n04251144,snorkel,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8,applied training-only neighbor suggestion
+image_049872.JPEG,n02699494,altar,n04465501,tractor,n04465501,tractor,1.0,0.8,applied training-only neighbor suggestion
+image_010811.JPEG,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",1.0,1.0,applied training-only neighbor suggestion
+image_048975.JPEG,n04366367,suspension bridge,n02056570,"king penguin, Aptenodytes patagonica",n02056570,"king penguin, Aptenodytes patagonica",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_035959.JPEG,n02841315,"binoculars, field glasses, opera glasses",n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_010722.JPEG,n02056570,"king penguin, Aptenodytes patagonica",n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_042337.JPEG,n04251144,snorkel,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_059630.JPEG,n07768694,pomegranate,n07749582,lemon,n07749582,lemon,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_034453.JPEG,n07579787,plate,n07920052,espresso,n07920052,espresso,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_028166.JPEG,n03126707,crane,n03662601,lifeboat,n03662601,lifeboat,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_052296.JPEG,n04596742,wok,n02094433,Yorkshire terrier,n02094433,Yorkshire terrier,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003785.JPEG,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n01910747,jellyfish,n01910747,jellyfish,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_023120.JPEG,n06596364,comic book,n01784675,centipede,n01784675,centipede,1.0,0.8,applied training-only neighbor suggestion
+image_005431.JPEG,n02403003,ox,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_018883.JPEG,n04285008,"sports car, sport car",n04146614,school bus,n04146614,school bus,1.0,0.8,applied training-only neighbor suggestion
+image_025944.JPEG,n02268443,"dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk",n03424325,"gasmask, respirator, gas helmet",n03424325,"gasmask, respirator, gas helmet",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_022723.JPEG,n01784675,centipede,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_039682.JPEG,n02113799,standard poodle,n04099969,"rocking chair, rocker",n04099969,"rocking chair, rocker",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_017074.JPEG,n03804744,nail,n07747607,orange,n07747607,orange,1.0,0.8,applied training-only neighbor suggestion
+image_022786.JPEG,n03706229,magnetic compass,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.8,applied training-only neighbor suggestion
+image_024928.JPEG,n02788148,"bannister, banister, balustrade, balusters, handrail",n02423022,gazelle,n02423022,gazelle,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_007312.JPEG,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02843684,birdhouse,n02843684,birdhouse,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_022646.JPEG,n07875152,potpie,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.8,applied training-only neighbor suggestion
+image_035184.JPEG,n01742172,"boa constrictor, Constrictor constrictor",n07579787,plate,n07579787,plate,1.0,0.8,applied training-only neighbor suggestion
+image_054545.JPEG,n03388043,fountain,n02002724,"black stork, Ciconia nigra",n02002724,"black stork, Ciconia nigra",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_014635.JPEG,n04532106,vestment,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_035751.JPEG,n02950826,cannon,n04133789,sandal,n04133789,sandal,1.0,0.8,applied training-only neighbor suggestion
+image_005086.JPEG,n02906734,broom,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_046581.JPEG,n03837869,obelisk,n02699494,altar,n02699494,altar,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_026786.JPEG,n02823428,beer bottle,n03937543,pill bottle,n03937543,pill bottle,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_001850.JPEG,n01950731,"sea slug, nudibranch",n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_014473.JPEG,n02113799,standard poodle,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_047747.JPEG,n02395406,"hog, pig, grunter, squealer, Sus scrofa",n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_031891.JPEG,n04596742,wok,n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_039820.JPEG,n02099712,Labrador retriever,n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",1.0,0.8,applied training-only neighbor suggestion
+image_006203.JPEG,n01944390,snail,n04532670,viaduct,n04532670,viaduct,1.0,0.8,applied training-only neighbor suggestion
+image_031798.JPEG,n04356056,"sunglasses, dark glasses, shades",n04133789,sandal,n04133789,sandal,1.0,0.8,applied training-only neighbor suggestion
+image_026721.JPEG,n04560804,water jug,n02823428,beer bottle,n02823428,beer bottle,1.0,0.8,applied training-only neighbor suggestion
+image_024361.JPEG,n04398044,teapot,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",1.0,0.8,applied training-only neighbor suggestion
+image_029345.JPEG,n04366367,suspension bridge,n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,0.8,applied training-only neighbor suggestion
+image_046566.JPEG,n03837869,obelisk,n04486054,triumphal arch,n04486054,triumphal arch,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_016393.JPEG,n03201208,"dining table, board",n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_003573.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n01910747,jellyfish,n01910747,jellyfish,1.0,0.8,applied training-only neighbor suggestion
+image_053081.JPEG,n09256479,coral reef,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_029308.JPEG,n03014705,chest,n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005136.JPEG,n12267677,acorn,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_048796.JPEG,n03126707,crane,n03891332,parking meter,n03891332,parking meter,1.0,1.0,applied training-only neighbor suggestion
+image_003219.JPEG,n03796401,moving van,n09193705,alp,n09193705,alp,1.0,0.8,applied training-only neighbor suggestion
+image_025039.JPEG,n03733131,maypole,n02423022,gazelle,n02423022,gazelle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_013978.JPEG,n03617480,kimono,n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.8,applied training-only neighbor suggestion
+image_032924.JPEG,n09246464,"cliff, drop, drop-off",n02892201,"brass, memorial tablet, plaque",n02892201,"brass, memorial tablet, plaque",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_014683.JPEG,n01742172,"boa constrictor, Constrictor constrictor",n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_001735.JPEG,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_053183.JPEG,n07711569,mashed potato,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",1.0,1.0,applied training-only neighbor suggestion
+image_014123.JPEG,n02795169,"barrel, cask",n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_025748.JPEG,n02814533,"beach wagon, station wagon, wagon, estate car, beach waggon, station waggon, waggon",n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_024856.JPEG,n03804744,nail,n02423022,gazelle,n02423022,gazelle,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_036080.JPEG,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_005087.JPEG,n02423022,gazelle,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_004639.JPEG,n02788148,"bannister, banister, balustrade, balusters, handrail",n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_051041.JPEG,n03100240,convertible,n04285008,"sports car, sport car",n04285008,"sports car, sport car",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_022710.JPEG,n04265275,space heater,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_005352.JPEG,n03854065,"organ, pipe organ",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_047594.JPEG,n02950826,cannon,n02129165,"lion, king of beasts, Panthera leo",n02129165,"lion, king of beasts, Panthera leo",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_031924.JPEG,n04596742,wok,n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_022266.JPEG,n01910747,jellyfish,n04540053,volleyball,n04540053,volleyball,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_049588.JPEG,n01917289,brain coral,n01774750,tarantula,n01774750,tarantula,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_016036.JPEG,n04251144,snorkel,n09193705,alp,n09193705,alp,1.0,0.8,applied training-only neighbor suggestion
+image_028442.JPEG,n03393912,freight car,n03796401,moving van,n03796401,moving van,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_014138.JPEG,n04417672,"thatch, thatched roof",n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005313.JPEG,n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_008549.JPEG,n03930313,"picket fence, paling",n04501370,turnstile,n04501370,turnstile,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005002.JPEG,n04398044,teapot,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_008449.JPEG,n04417672,"thatch, thatched roof",n04501370,turnstile,n04501370,turnstile,1.0,1.0,applied training-only neighbor suggestion
+image_005325.JPEG,n02909870,"bucket, pail",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_022628.JPEG,n03854065,"organ, pipe organ",n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_004207.JPEG,n04067472,reel,n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_016804.JPEG,n01629819,"European fire salamander, Salamandra salamandra",n02190166,fly,n02190166,fly,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025065.JPEG,n03992509,potter's wheel,n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_027351.JPEG,n03637318,"lampshade, lamp shade",n02843684,birdhouse,n02843684,birdhouse,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006942.JPEG,n02226429,"grasshopper, hopper",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_043195.JPEG,n07579787,plate,n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",1.0,0.8,applied training-only neighbor suggestion
+image_037307.JPEG,n09246464,"cliff, drop, drop-off",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_011902.JPEG,n03837869,obelisk,n01944390,snail,n01944390,snail,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000788.JPEG,n01770393,scorpion,n07749582,lemon,n07749582,lemon,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_002429.JPEG,n02669723,"academic gown, academic robe, judge's robe",n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.8,applied training-only neighbor suggestion
+image_013427.JPEG,n02106662,"German shepherd, German shepherd dog, German police dog, alsatian",n07747607,orange,n07747607,orange,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_046700.JPEG,n09428293,"seashore, coast, seacoast, sea-coast",n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_022870.JPEG,n01944390,snail,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005659.JPEG,n04074963,"remote control, remote",n03992509,potter's wheel,n03992509,potter's wheel,1.0,0.8,applied training-only neighbor suggestion
+image_055053.JPEG,n04008634,"projectile, missile",n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020977.JPEG,n04067472,reel,n02123045,"tabby, tabby cat",n02123045,"tabby, tabby cat",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_044237.JPEG,n02963159,cardigan,n07720875,bell pepper,n07720875,bell pepper,1.0,0.8,applied training-only neighbor suggestion
+image_024987.JPEG,n02892201,"brass, memorial tablet, plaque",n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_016303.JPEG,n03201208,"dining table, board",n09193705,alp,n09193705,alp,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_044097.JPEG,n07695742,pretzel,n07720875,bell pepper,n07720875,bell pepper,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_005487.JPEG,n07615774,"ice lolly, lolly, lollipop, popsicle",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_041901.JPEG,n07871810,"meat loaf, meatloaf",n02948072,"candle, taper, wax light",n02948072,"candle, taper, wax light",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_058361.JPEG,n01770393,scorpion,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_054131.JPEG,n02841315,"binoculars, field glasses, opera glasses",n03424325,"gasmask, respirator, gas helmet",n03424325,"gasmask, respirator, gas helmet",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_003812.JPEG,n04067472,reel,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_059858.JPEG,n02364673,"guinea pig, Cavia cobaya",n02106662,"German shepherd, German shepherd dog, German police dog, alsatian",n02106662,"German shepherd, German shepherd dog, German police dog, alsatian",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009101.JPEG,n02113799,standard poodle,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8,applied training-only neighbor suggestion
+image_000568.JPEG,n01698640,"American alligator, Alligator mississipiensis",n07749582,lemon,n07749582,lemon,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009513.JPEG,n03902125,"pay-phone, pay-station",n03937543,pill bottle,n03937543,pill bottle,1.0,0.8,applied training-only neighbor suggestion
+image_028125.JPEG,n03126707,crane,n03796401,moving van,n03796401,moving van,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_035936.JPEG,n04133789,sandal,n04486054,triumphal arch,n04486054,triumphal arch,1.0,1.0,applied training-only neighbor suggestion
+image_004983.JPEG,n04074963,"remote control, remote",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_050193.JPEG,n03930313,"picket fence, paling",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8,applied training-only neighbor suggestion
+image_033280.JPEG,n02231487,"walking stick, walkingstick, stick insect",n03662601,lifeboat,n03662601,lifeboat,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_000278.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n02793495,barn,n02793495,barn,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_058297.JPEG,n02074367,"dugong, Dugong dugon",n04251144,snorkel,n04251144,snorkel,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_037981.JPEG,n07583066,guacamole,n09256479,coral reef,n09256479,coral reef,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_040613.JPEG,n01774750,tarantula,n04070727,"refrigerator, icebox",n04070727,"refrigerator, icebox",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_002630.JPEG,n03393912,freight car,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_040103.JPEG,n09256479,coral reef,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_041860.JPEG,n02948072,"candle, taper, wax light",n03544143,hourglass,n03544143,hourglass,1.0,0.8,applied training-only neighbor suggestion
+image_002988.JPEG,n03796401,moving van,n04146614,school bus,n04146614,school bus,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_015050.JPEG,n04507155,umbrella,n03584254,iPod,n03584254,iPod,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_034712.JPEG,n04149813,scoreboard,n04501370,turnstile,n04501370,turnstile,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_044799.JPEG,n06596364,comic book,n02415577,"bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis",n02415577,"bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_023096.JPEG,n04596742,wok,n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_029654.JPEG,n04118538,rugby ball,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",1.0,0.8,applied training-only neighbor suggestion
+image_007448.JPEG,n04540053,volleyball,n02843684,birdhouse,n02843684,birdhouse,1.0,0.8,applied training-only neighbor suggestion
+image_033204.JPEG,n07920052,espresso,n03662601,lifeboat,n03662601,lifeboat,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_039069.JPEG,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03796401,moving van,n03796401,moving van,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_046292.JPEG,n03970156,"plunger, plumber's helper",n03255030,dumbbell,n03255030,dumbbell,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020846.JPEG,n09246464,"cliff, drop, drop-off",n09193705,alp,n09193705,alp,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_027029.JPEG,n03637318,"lampshade, lamp shade",n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_015346.JPEG,n12267677,acorn,n03584254,iPod,n03584254,iPod,1.0,1.0,applied training-only neighbor suggestion
+image_057752.JPEG,n09332890,"lakeside, lakeshore",n09193705,alp,n09193705,alp,1.0,0.8,applied training-only neighbor suggestion
+image_032731.JPEG,n03983396,"pop bottle, soda bottle",n03089624,"confectionery, confectionary, candy store",n03089624,"confectionery, confectionary, candy store",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_055123.JPEG,n03706229,magnetic compass,n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_037813.JPEG,n02927161,"butcher shop, meat market",n09256479,coral reef,n09256479,coral reef,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_034002.JPEG,n07720875,bell pepper,n01917289,brain coral,n01917289,brain coral,1.0,0.8,applied training-only neighbor suggestion
+image_032515.JPEG,n03983396,"pop bottle, soda bottle",n02823428,beer bottle,n02823428,beer bottle,0.9333333333333333,0.9333333333333333,applied training-only neighbor suggestion
+image_008028.JPEG,n02423022,gazelle,n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_058337.JPEG,n01770393,scorpion,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_039822.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",1.0,0.8,applied training-only neighbor suggestion
+image_016274.JPEG,n04366367,suspension bridge,n09193705,alp,n09193705,alp,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_049071.JPEG,n03026506,Christmas stocking,n02917067,"bullet train, bullet",n02917067,"bullet train, bullet",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_028325.JPEG,n03891332,parking meter,n03393912,freight car,n03393912,freight car,1.0,1.0,applied training-only neighbor suggestion
+image_018414.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_036065.JPEG,n03796401,moving van,n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003389.JPEG,n02364673,"guinea pig, Cavia cobaya",n01910747,jellyfish,n01910747,jellyfish,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_031063.JPEG,n03388043,fountain,n02699494,altar,n02699494,altar,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_042030.JPEG,n04507155,umbrella,n02948072,"candle, taper, wax light",n02948072,"candle, taper, wax light",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_050881.JPEG,n03026506,Christmas stocking,n06596364,comic book,n06596364,comic book,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_054228.JPEG,n07873807,"pizza, pizza pie",n04074963,"remote control, remote",n04074963,"remote control, remote",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025196.JPEG,n07768694,pomegranate,n02423022,gazelle,n02423022,gazelle,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_030854.JPEG,n02909870,"bucket, pail",n07920052,espresso,n07920052,espresso,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_037068.JPEG,n02236044,"mantis, mantid",n02906734,broom,n02906734,broom,1.0,0.8,applied training-only neighbor suggestion
+image_047074.JPEG,n04597913,wooden spoon,n07583066,guacamole,n07583066,guacamole,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_032303.JPEG,n02917067,"bullet train, bullet",n06596364,comic book,n06596364,comic book,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_005193.JPEG,n07875152,potpie,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_023128.JPEG,n02002724,"black stork, Ciconia nigra",n01784675,centipede,n01784675,centipede,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_017777.JPEG,n04023962,"punching bag, punch bag, punching ball, punchball",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_057410.JPEG,n02231487,"walking stick, walkingstick, stick insect",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_022659.JPEG,n03355925,"flagpole, flagstaff",n02669723,"academic gown, academic robe, judge's robe",n02669723,"academic gown, academic robe, judge's robe",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_053097.JPEG,n07747607,orange,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_020455.JPEG,n09246464,"cliff, drop, drop-off",n09193705,alp,n09193705,alp,1.0,0.8,applied training-only neighbor suggestion
+image_059587.JPEG,n02814533,"beach wagon, station wagon, wagon, estate car, beach waggon, station waggon, waggon",n04146614,school bus,n04146614,school bus,1.0,0.8,applied training-only neighbor suggestion
+image_012012.JPEG,n04146614,school bus,n01944390,snail,n01944390,snail,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_037814.JPEG,n09256479,coral reef,n01917289,brain coral,n01917289,brain coral,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_045477.JPEG,n02113799,standard poodle,n02094433,Yorkshire terrier,n02094433,Yorkshire terrier,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005988.JPEG,n07753592,banana,n03992509,potter's wheel,n03992509,potter's wheel,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_042989.JPEG,n04328186,"stopwatch, stop watch",n03584254,iPod,n03584254,iPod,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_024840.JPEG,n03854065,"organ, pipe organ",n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_000582.JPEG,n07749582,lemon,n07747607,orange,n07747607,orange,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_055107.JPEG,n03706229,magnetic compass,n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_023862.JPEG,n02395406,"hog, pig, grunter, squealer, Sus scrofa",n04133789,sandal,n04133789,sandal,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_028612.JPEG,n01910747,jellyfish,n04146614,school bus,n04146614,school bus,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_012011.JPEG,n04486054,triumphal arch,n01944390,snail,n01944390,snail,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_036043.JPEG,n03980874,poncho,n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_025384.JPEG,n03026506,Christmas stocking,n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_039338.JPEG,n02486410,baboon,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_050834.JPEG,n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n03026506,Christmas stocking,n03026506,Christmas stocking,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_010726.JPEG,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_006419.JPEG,n02395406,"hog, pig, grunter, squealer, Sus scrofa",n04532670,viaduct,n04532670,viaduct,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_023212.JPEG,n07583066,guacamole,n01784675,centipede,n01784675,centipede,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_050994.JPEG,n07873807,"pizza, pizza pie",n03026506,Christmas stocking,n03026506,Christmas stocking,1.0,0.8,applied training-only neighbor suggestion
+image_000001.JPEG,n03042490,cliff dwelling,n02793495,barn,n02793495,barn,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_014654.JPEG,n03670208,"limousine, limo",n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.8,applied training-only neighbor suggestion
+image_006299.JPEG,n03393912,freight car,n04532670,viaduct,n04532670,viaduct,1.0,0.8,applied training-only neighbor suggestion
+image_044683.JPEG,n02415577,"bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis",n02423022,gazelle,n02423022,gazelle,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_049344.JPEG,n03085013,"computer keyboard, keypad",n02883205,"bow tie, bow-tie, bowtie",n02883205,"bow tie, bow-tie, bowtie",1.0,0.8,applied training-only neighbor suggestion
+image_007319.JPEG,n04417672,"thatch, thatched roof",n02843684,birdhouse,n02843684,birdhouse,1.0,0.8,applied training-only neighbor suggestion
+image_000575.JPEG,n07749582,lemon,n07920052,espresso,n07749582,lemon,1.0,0.9333333333333333,kept original label by exception
+image_013626.JPEG,n04540053,volleyball,n07747607,orange,n07747607,orange,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003583.JPEG,n03255030,dumbbell,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_018195.JPEG,n02808440,"bathtub, bathing tub, bath, tub",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,1.0,applied training-only neighbor suggestion
+image_039310.JPEG,n01774384,"black widow, Latrodectus mactans",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_037606.JPEG,n03447447,gondola,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_015576.JPEG,n02814533,"beach wagon, station wagon, wagon, estate car, beach waggon, station waggon, waggon",n01742172,"boa constrictor, Constrictor constrictor",n01742172,"boa constrictor, Constrictor constrictor",1.0,0.8,applied training-only neighbor suggestion
+image_016072.JPEG,n02948072,"candle, taper, wax light",n09193705,alp,n09193705,alp,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_011737.JPEG,n02124075,Egyptian cat,n01944390,snail,n01944390,snail,1.0,0.8,applied training-only neighbor suggestion
+image_039759.JPEG,n02099601,golden retriever,n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_043419.JPEG,n03599486,"jinrikisha, ricksha, rickshaw",n02815834,beaker,n02815834,beaker,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_021228.JPEG,n07583066,guacamole,n02124075,Egyptian cat,n02124075,Egyptian cat,1.0,0.8,applied training-only neighbor suggestion
+image_010571.JPEG,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui",n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_018298.JPEG,n07768694,pomegranate,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_058249.JPEG,n02802426,basketball,n02074367,"dugong, Dugong dugon",n02074367,"dugong, Dugong dugon",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_027319.JPEG,n02841315,"binoculars, field glasses, opera glasses",n03637318,"lampshade, lamp shade",n03637318,"lampshade, lamp shade",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_036782.JPEG,n03400231,"frying pan, frypan, skillet",n07873807,"pizza, pizza pie",n07873807,"pizza, pizza pie",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_012552.JPEG,n02123394,Persian cat,n02236044,"mantis, mantid",n02236044,"mantis, mantid",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_028202.JPEG,n02113799,standard poodle,n03393912,freight car,n03393912,freight car,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_013846.JPEG,n07720875,bell pepper,n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,0.8,applied training-only neighbor suggestion
+image_049946.JPEG,n02699494,altar,n04465501,tractor,n04465501,tractor,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_032084.JPEG,n04149813,scoreboard,n06596364,comic book,n06596364,comic book,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_016580.JPEG,n04532670,viaduct,n02190166,fly,n02190166,fly,1.0,0.8,applied training-only neighbor suggestion
+image_005378.JPEG,n02815834,beaker,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_002232.JPEG,n01945685,slug,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_043731.JPEG,n04399382,"teddy, teddy bear",n02099712,Labrador retriever,n02099712,Labrador retriever,1.0,0.8,applied training-only neighbor suggestion
+image_040865.JPEG,n09332890,"lakeside, lakeshore",n03814639,neck brace,n03814639,neck brace,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_043213.JPEG,n02236044,"mantis, mantid",n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_013590.JPEG,n02977058,"cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM",n07747607,orange,n07747607,orange,1.0,0.8,applied training-only neighbor suggestion
+image_038743.JPEG,n03355925,"flagpole, flagstaff",n03544143,hourglass,n03544143,hourglass,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_007017.JPEG,n03983396,"pop bottle, soda bottle",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_010339.JPEG,n02129165,"lion, king of beasts, Panthera leo",n02123045,"tabby, tabby cat",n02123045,"tabby, tabby cat",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001904.JPEG,n02074367,"dugong, Dugong dugon",n07920052,espresso,n07920052,espresso,1.0,0.8,applied training-only neighbor suggestion
+image_026733.JPEG,n02823428,beer bottle,n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_043444.JPEG,n07583066,guacamole,n02815834,beaker,n02815834,beaker,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_057985.JPEG,n03930313,"picket fence, paling",n02793495,barn,n02793495,barn,1.0,0.8,applied training-only neighbor suggestion
+image_003668.JPEG,n07920052,espresso,n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_009339.JPEG,n03179701,desk,n02281406,"sulphur butterfly, sulfur butterfly",n02281406,"sulphur butterfly, sulfur butterfly",1.0,0.8,applied training-only neighbor suggestion
+image_001991.JPEG,n03937543,pill bottle,n07920052,espresso,n07920052,espresso,1.0,0.8,applied training-only neighbor suggestion
+image_014983.JPEG,n04146614,school bus,n03584254,iPod,n03584254,iPod,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_029868.JPEG,n03902125,"pay-phone, pay-station",n04399382,"teddy, teddy bear",n04399382,"teddy, teddy bear",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_019373.JPEG,n02808440,"bathtub, bathing tub, bath, tub",n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006832.JPEG,n03014705,chest,n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8,applied training-only neighbor suggestion
+image_029451.JPEG,n03980874,poncho,n01443537,"goldfish, Carassius auratus",n01443537,"goldfish, Carassius auratus",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_058442.JPEG,n09193705,alp,n01774384,"black widow, Latrodectus mactans",n01774384,"black widow, Latrodectus mactans",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_005046.JPEG,n02892201,"brass, memorial tablet, plaque",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,1.0,applied training-only neighbor suggestion
+image_037062.JPEG,n02906734,broom,n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_028227.JPEG,n04376876,syringe,n03393912,freight car,n03393912,freight car,1.0,0.8,applied training-only neighbor suggestion
+image_020392.JPEG,n09246464,"cliff, drop, drop-off",n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_024614.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n04398044,teapot,n04398044,teapot,1.0,0.8,applied training-only neighbor suggestion
+image_039358.JPEG,n03250847,drumstick,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.8,applied training-only neighbor suggestion
+image_059429.JPEG,n02730930,apron,n03617480,kimono,n03617480,kimono,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_015026.JPEG,n03014705,chest,n03584254,iPod,n03584254,iPod,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_003651.JPEG,n04417672,"thatch, thatched roof",n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_043520.JPEG,n12267677,acorn,n02815834,beaker,n02815834,beaker,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_008665.JPEG,n02669723,"academic gown, academic robe, judge's robe",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000274.JPEG,n09332890,"lakeside, lakeshore",n02793495,barn,n02793495,barn,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_013733.JPEG,n02909870,"bucket, pail",n07747607,orange,n07747607,orange,1.0,0.8,applied training-only neighbor suggestion
+image_000406.JPEG,n01945685,slug,n09193705,alp,n09193705,alp,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_013718.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n07747607,orange,n07747607,orange,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006099.JPEG,n04311004,steel arch bridge,n04532670,viaduct,n04532670,viaduct,1.0,0.8,applied training-only neighbor suggestion
+image_005038.JPEG,n02113799,standard poodle,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_056018.JPEG,n02977058,"cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020770.JPEG,n09246464,"cliff, drop, drop-off",n09193705,alp,n09193705,alp,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_001712.JPEG,n03042490,cliff dwelling,n07920052,espresso,n07920052,espresso,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_020178.JPEG,n02486410,baboon,n02699494,altar,n02699494,altar,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003731.JPEG,n02815834,beaker,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_015430.JPEG,n07711569,mashed potato,n01742172,"boa constrictor, Constrictor constrictor",n01742172,"boa constrictor, Constrictor constrictor",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_000259.JPEG,n04118538,rugby ball,n02793495,barn,n02793495,barn,1.0,1.0,applied training-only neighbor suggestion
+image_052273.JPEG,n04376876,syringe,n02094433,Yorkshire terrier,n02094433,Yorkshire terrier,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_002021.JPEG,n07749582,lemon,n07920052,espresso,n07920052,espresso,1.0,1.0,applied training-only neighbor suggestion
+image_025033.JPEG,n03444034,go-kart,n02423022,gazelle,n02423022,gazelle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_006097.JPEG,n02769748,"backpack, back pack, knapsack, packsack, rucksack, haversack",n04532670,viaduct,n04532670,viaduct,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_013677.JPEG,n03649909,"lawn mower, mower",n07747607,orange,n07747607,orange,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_005362.JPEG,n07579787,plate,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_042924.JPEG,n03976657,pole,n04328186,"stopwatch, stop watch",n04328186,"stopwatch, stop watch",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_005242.JPEG,n02113799,standard poodle,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,1.0,applied training-only neighbor suggestion
+image_002124.JPEG,n02056570,"king penguin, Aptenodytes patagonica",n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_016880.JPEG,n02823428,beer bottle,n02190166,fly,n02190166,fly,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_024883.JPEG,n02837789,"bikini, two-piece",n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_018104.JPEG,n02977058,"cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_002925.JPEG,n03400231,"frying pan, frypan, skillet",n03796401,moving van,n03796401,moving van,1.0,0.8,applied training-only neighbor suggestion
+image_033167.JPEG,n09332890,"lakeside, lakeshore",n03662601,lifeboat,n03662601,lifeboat,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_019238.JPEG,n01770393,scorpion,n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_032764.JPEG,n03976657,pole,n02892201,"brass, memorial tablet, plaque",n02892201,"brass, memorial tablet, plaque",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_045667.JPEG,n04399382,"teddy, teddy bear",n07715103,cauliflower,n07715103,cauliflower,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_055734.JPEG,n03179701,desk,n03201208,"dining table, board",n03201208,"dining table, board",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_018794.JPEG,n09332890,"lakeside, lakeshore",n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_054959.JPEG,n04259630,sombrero,n02123394,Persian cat,n02123394,Persian cat,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_023054.JPEG,n02669723,"academic gown, academic robe, judge's robe",n03733131,maypole,n03733131,maypole,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001466.JPEG,n04265275,space heater,n03355925,"flagpole, flagstaff",n03355925,"flagpole, flagstaff",1.0,1.0,applied training-only neighbor suggestion
+image_002140.JPEG,n02002724,"black stork, Ciconia nigra",n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_002086.JPEG,n02666196,abacus,n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_046612.JPEG,n09428293,"seashore, coast, seacoast, sea-coast",n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.8,applied training-only neighbor suggestion
+image_002518.JPEG,n03599486,"jinrikisha, ricksha, rickshaw",n04417672,"thatch, thatched roof",n04417672,"thatch, thatched roof",1.0,1.0,applied training-only neighbor suggestion
+image_026877.JPEG,n02281406,"sulphur butterfly, sulfur butterfly",n02823428,beer bottle,n02823428,beer bottle,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_018010.JPEG,n02892201,"brass, memorial tablet, plaque",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_023643.JPEG,n09246464,"cliff, drop, drop-off",n01784675,centipede,n01784675,centipede,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_028496.JPEG,n07749582,lemon,n03393912,freight car,n03393912,freight car,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_033209.JPEG,n04486054,triumphal arch,n03662601,lifeboat,n03662601,lifeboat,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_023880.JPEG,n04067472,reel,n04133789,sandal,n04133789,sandal,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_051706.JPEG,n04275548,"spider web, spider's web",n03670208,"limousine, limo",n03670208,"limousine, limo",1.0,0.8,applied training-only neighbor suggestion
+image_032285.JPEG,n07711569,mashed potato,n06596364,comic book,n06596364,comic book,1.0,1.0,applied training-only neighbor suggestion
+image_023414.JPEG,n01784675,centipede,n03584254,iPod,n03584254,iPod,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_008664.JPEG,n02504458,"African elephant, Loxodonta africana",n04501370,turnstile,n04501370,turnstile,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_014507.JPEG,n01770393,scorpion,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_003300.JPEG,n03014705,chest,n03796401,moving van,n03796401,moving van,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_038711.JPEG,n04465501,tractor,n03544143,hourglass,n03544143,hourglass,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_001756.JPEG,n04366367,suspension bridge,n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_008179.JPEG,n07695742,pretzel,n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_056701.JPEG,n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n01629819,"European fire salamander, Salamandra salamandra",n01629819,"European fire salamander, Salamandra salamandra",1.0,0.8,applied training-only neighbor suggestion
+image_000097.JPEG,n12267677,acorn,n02793495,barn,n02793495,barn,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_014402.JPEG,n02281406,"sulphur butterfly, sulfur butterfly",n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.8,applied training-only neighbor suggestion
+image_053903.JPEG,n04067472,reel,n03085013,"computer keyboard, keypad",n03085013,"computer keyboard, keypad",1.0,1.0,applied training-only neighbor suggestion
+image_057441.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.8,applied training-only neighbor suggestion
+image_028723.JPEG,n07920052,espresso,n04146614,school bus,n04146614,school bus,1.0,0.8,applied training-only neighbor suggestion
+image_034144.JPEG,n02423022,gazelle,n01917289,brain coral,n01917289,brain coral,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_041096.JPEG,n02321529,"sea cucumber, holothurian",n03814639,neck brace,n03814639,neck brace,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_005640.JPEG,n03980874,poncho,n03992509,potter's wheel,n03992509,potter's wheel,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_037794.JPEG,n02883205,"bow tie, bow-tie, bowtie",n09256479,coral reef,n09256479,coral reef,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_001973.JPEG,n04371430,"swimming trunks, bathing trunks",n07920052,espresso,n07920052,espresso,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_009579.JPEG,n03100240,convertible,n03937543,pill bottle,n03937543,pill bottle,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_046503.JPEG,n02666196,abacus,n03837869,obelisk,n03837869,obelisk,1.0,1.0,applied training-only neighbor suggestion
+image_010298.JPEG,n02999410,chain,n02124075,Egyptian cat,n02124075,Egyptian cat,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_045465.JPEG,n02113799,standard poodle,n02808440,"bathtub, bathing tub, bath, tub",n02808440,"bathtub, bathing tub, bath, tub",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006501.JPEG,n02999410,chain,n04532670,viaduct,n04532670,viaduct,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_036155.JPEG,n02190166,fly,n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_003553.JPEG,n04265275,space heater,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8,applied training-only neighbor suggestion
+image_017328.JPEG,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish",n03804744,nail,n03804744,nail,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_054475.JPEG,n04501370,turnstile,n02002724,"black stork, Ciconia nigra",n02002724,"black stork, Ciconia nigra",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_024458.JPEG,n02113799,standard poodle,n04398044,teapot,n04398044,teapot,1.0,0.8,applied training-only neighbor suggestion
+image_036210.JPEG,n06596364,comic book,n04486054,triumphal arch,n04486054,triumphal arch,1.0,0.8,applied training-only neighbor suggestion
+image_007089.JPEG,n04074963,"remote control, remote",n03902125,"pay-phone, pay-station",n03902125,"pay-phone, pay-station",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_006520.JPEG,n04596742,wok,n04532670,viaduct,n04532670,viaduct,1.0,1.0,applied training-only neighbor suggestion
+image_017882.JPEG,n02917067,"bullet train, bullet",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_001868.JPEG,n02788148,"bannister, banister, balustrade, balusters, handrail",n07920052,espresso,n07920052,espresso,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_002368.JPEG,n02791270,barbershop,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_011595.JPEG,n04265275,space heater,n01944390,snail,n01944390,snail,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_057802.JPEG,n04311004,steel arch bridge,n04532670,viaduct,n04532670,viaduct,1.0,0.8,applied training-only neighbor suggestion
+image_014551.JPEG,n12267677,acorn,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_039391.JPEG,n02841315,"binoculars, field glasses, opera glasses",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_014775.JPEG,n04149813,scoreboard,n02364673,"guinea pig, Cavia cobaya",n02364673,"guinea pig, Cavia cobaya",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_019110.JPEG,n02058221,"albatross, mollymawk",n04285008,"sports car, sport car",n04285008,"sports car, sport car",1.0,0.8,applied training-only neighbor suggestion
+image_033961.JPEG,n01917289,brain coral,n09256479,coral reef,n09256479,coral reef,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_042473.JPEG,n04251144,snorkel,n04371430,"swimming trunks, bathing trunks",n04371430,"swimming trunks, bathing trunks",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_033394.JPEG,n03706229,magnetic compass,n03662601,lifeboat,n03662601,lifeboat,1.0,0.8,applied training-only neighbor suggestion
+image_000313.JPEG,n02793495,barn,n09193705,alp,n09193705,alp,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_030275.JPEG,n07875152,potpie,n07920052,espresso,n07920052,espresso,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_003827.JPEG,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus",n01910747,jellyfish,n01910747,jellyfish,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_011477.JPEG,n04376876,syringe,n03814639,neck brace,n03814639,neck brace,0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_027214.JPEG,n03637318,"lampshade, lamp shade",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_027065.JPEG,n03424325,"gasmask, respirator, gas helmet",n03637318,"lampshade, lamp shade",n03637318,"lampshade, lamp shade",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_015999.JPEG,n01882714,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus",n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_008285.JPEG,n09428293,"seashore, coast, seacoast, sea-coast",n04501370,turnstile,n04501370,turnstile,1.0,0.8,applied training-only neighbor suggestion
+image_003296.JPEG,n03796401,moving van,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria",0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_032027.JPEG,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n04356056,"sunglasses, dark glasses, shades",n04356056,"sunglasses, dark glasses, shades",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_044182.JPEG,n04596742,wok,n07720875,bell pepper,n07720875,bell pepper,1.0,0.8,applied training-only neighbor suggestion
+image_034834.JPEG,n01945685,slug,n04149813,scoreboard,n04149813,scoreboard,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_037321.JPEG,n01855672,goose,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",n02480495,"orangutan, orang, orangutang, Pongo pygmaeus",1.0,1.0,applied training-only neighbor suggestion
+image_000451.JPEG,n03042490,cliff dwelling,n02793495,barn,n02793495,barn,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_006471.JPEG,n03838899,"oboe, hautboy, hautbois",n04532670,viaduct,n04532670,viaduct,0.9333333333333333,0.7333333333333333,applied training-only neighbor suggestion
+image_004168.JPEG,n07734744,mushroom,n01641577,"bullfrog, Rana catesbeiana",n01641577,"bullfrog, Rana catesbeiana",1.0,0.8,applied training-only neighbor suggestion
+image_023827.JPEG,n07871810,"meat loaf, meatloaf",n04133789,sandal,n04133789,sandal,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_025016.JPEG,n03891332,parking meter,n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_038393.JPEG,n03770439,"miniskirt, mini",n03733131,maypole,n03733131,maypole,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_051116.JPEG,n03100240,convertible,n04285008,"sports car, sport car",n04285008,"sports car, sport car",0.9333333333333333,0.8,applied training-only neighbor suggestion
+image_052300.JPEG,n04487081,"trolleybus, trolley coach, trackless trolley",n02094433,Yorkshire terrier,n02094433,Yorkshire terrier,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_028740.JPEG,n02281406,"sulphur butterfly, sulfur butterfly",n04146614,school bus,n04146614,school bus,1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_002077.JPEG,n03706229,magnetic compass,n07920052,espresso,n07920052,espresso,1.0,1.0,applied training-only neighbor suggestion
+image_054537.JPEG,n03930313,"picket fence, paling",n02002724,"black stork, Ciconia nigra",n02002724,"black stork, Ciconia nigra",1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_043103.JPEG,n04328186,"stopwatch, stop watch",n03584254,iPod,n03584254,iPod,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion
+image_002687.JPEG,n02099601,golden retriever,n03599486,"jinrikisha, ricksha, rickshaw",n03599486,"jinrikisha, ricksha, rickshaw",1.0,1.0,applied training-only neighbor suggestion
+image_001305.JPEG,n03355925,"flagpole, flagstaff",n09193705,alp,n09193705,alp,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_025354.JPEG,n07615774,"ice lolly, lolly, lollipop, popsicle",n03838899,"oboe, hautboy, hautbois",n03838899,"oboe, hautboy, hautbois",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_040470.JPEG,n03770439,"miniskirt, mini",n04070727,"refrigerator, icebox",n04070727,"refrigerator, icebox",1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_024731.JPEG,n03796401,moving van,n04398044,teapot,n04398044,teapot,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_013121.JPEG,n02730930,apron,n03854065,"organ, pipe organ",n03854065,"organ, pipe organ",1.0,0.8,applied training-only neighbor suggestion
+image_025160.JPEG,n01784675,centipede,n02423022,gazelle,n02423022,gazelle,1.0,0.8,applied training-only neighbor suggestion
+image_048558.JPEG,n03976657,pole,n01910747,jellyfish,n01910747,jellyfish,1.0,0.8,applied training-only neighbor suggestion
+image_005083.JPEG,n03599486,"jinrikisha, ricksha, rickshaw",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8,applied training-only neighbor suggestion
+image_005497.JPEG,n01629819,"European fire salamander, Salamandra salamandra",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus",1.0,0.8666666666666667,applied training-only neighbor suggestion
+image_059608.JPEG,n03447447,gondola,n07768694,pomegranate,n07768694,pomegranate,1.0,0.8,applied training-only neighbor suggestion
+image_022258.JPEG,n03976657,pole,n04540053,volleyball,n04540053,volleyball,1.0,0.7333333333333333,applied training-only neighbor suggestion
+image_028507.JPEG,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle",n03393912,freight car,n03393912,freight car,1.0,0.9333333333333333,applied training-only neighbor suggestion
+image_045648.JPEG,n07579787,plate,n07715103,cauliflower,n07715103,cauliflower,1.0,0.8,applied training-only neighbor suggestion
+image_033818.JPEG,n03255030,dumbbell,n01917289,brain coral,n01917289,brain coral,1.0,0.8,applied training-only neighbor suggestion
+image_027963.JPEG,n03126707,crane,n04146614,school bus,n04146614,school bus,0.9333333333333333,0.8666666666666667,applied training-only neighbor suggestion

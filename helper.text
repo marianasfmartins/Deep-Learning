@@ -1,0 +1,127 @@
+Tiny ImageNet Dataset Reverse-Engineering Guide
+================================================
+
+Purpose
+-------
+Use the public dataset as a reference to investigate possible intentional
+changes in the course dataset. The professor's exact modifications are not
+known yet. Treat every discrepancy as a candidate until it is supported by
+image matching, label evidence, and (where needed) manual review.
+
+Verified starting facts
+-----------------------
+- The local data/labels.csv has 60,000 rows and 200 class IDs. Its class counts
+  range from 108 to 549.
+- The current local splits contain 41,203 train, 8,829 validation, and 8,830
+  test rows (58,862 total). They reflect the project's existing filtering and
+  split decisions; they are not a clean copy of the public reference.
+- The Hugging Face dataset is zh-plus/tiny-imagenet:
+  https://huggingface.co/datasets/zh-plus/tiny-imagenet
+- At the time this guide was prepared, its viewer/card listed 100,000 train
+  rows and 10,000 validation rows, with 200 classes and 64x64 images. The card
+  also describes 50 validation and 50 test images per class, which does not
+  agree with its stated 110,000-row total. Inspect the repository's actual
+  split files and class metadata before assuming a test split is included.
+- Therefore, the local 60,000-row dataset is not a one-to-one copy of the
+  Hugging Face train split. Missing reference rows alone do not prove that the
+  professor deleted them intentionally or that the local data is corrupted.
+
+Recommended reverse-engineering strategy
+-----------------------------------------
+1. Freeze the evidence.
+   - Keep the course-provided data unchanged.
+   - Record the source, retrieval date/version, row counts, file counts, class
+     mapping, image dimensions, color modes, and checksums.
+   - Save every proposed change to a separate audit or cleaned copy.
+
+2. Verify the reference before comparing.
+   - Load the exact zh-plus/tiny-imagenet repository version and inspect its
+     available split names, row counts, features, and label/class mapping.
+   - The dataset card points to Kaggle, but the linked repository is a
+     Hugging Face-hosted conversion. Do not assume its files, labels, or split
+     contents are byte-for-byte identical to the course files.
+   - Align classes by WordNet synset/class ID (for example, n01443537), not by
+     numeric label position. Numeric IDs can be reordered between exports.
+   - Preserve a stable reference key such as source split plus row index if
+     the reference provides no original filename.
+
+3. Match images before judging labels.
+   - First compare exact SHA-256 hashes of file bytes.
+   - For unmatched files, compare decoded RGB pixels and perceptual hashes.
+     Use pHash/SSIM or another visual similarity measure to find candidates
+     altered by recompression, brightness changes, or small edits.
+   - Treat near matches as candidates, not proof: review ambiguous matches in
+     side-by-side contact sheets and require one-to-one matches where possible.
+   - Create a comparison table with current filename, reference key, exact
+     hash result, similarity score, current class, reference class, issue
+     candidate, confidence, reviewer decision, and chosen action.
+
+4. Compare coverage and labels.
+   - Count matched, unmatched, duplicate, and ambiguous current images.
+   - Count reference images absent from the course dataset separately from
+     course-only images. A 60,000-versus-110,000 size difference is expected
+     to produce many absent reference rows; do not call these errors without
+     the assignment's expected subset/sampling rule.
+   - For confidently matched images, compare labels using the canonical class
+     mapping. An identical image with a different class is strong evidence of
+     a label discrepancy, but confirm whether the assignment expects repair or
+     documentation of injected noise.
+   - Compare per-class counts only after matching the same population and
+     split. Imbalance by itself does not identify which examples were changed.
+
+5. Test specific anomaly hypotheses.
+   Candidate inconsistency                 Evidence to collect
+   -------------------------------------    ------------------------------
+   Wrong or remapped label                  Same image match; compare synset
+                                             labels after mapping IDs.
+   Missing/extra examples                   Reference-to-course membership
+                                             table; determine subset policy.
+   Exact duplicates                         SHA-256 groups; inspect labels.
+   Near duplicates                          pHash/SSIM candidates; visual
+                                             review; check split membership.
+   Train/validation/test leakage             Match duplicate groups across
+                                             splits; keep related images in
+                                             one split.
+   Changed brightness/contrast/color         Match to reference, then compare
+                                             pixel statistics and histograms.
+   Grayscale/channel or dimension changes    Inspect decoded mode, shape, and
+                                             channel values against reference.
+   Corrupt or unreadable file                 Attempt decode; record exception
+                                             and filename.
+   Class imbalance or altered split           Compare matched per-class counts
+                                             and split assignments, not just
+                                             total counts.
+
+6. Apply only evidence-backed corrections.
+   - If a confirmed label error is expected to be corrected, use the reference
+     label only for a high-confidence image match; retain the old label and
+     reason in an audit log.
+   - If a duplicate is confirmed, keep a documented representative or group
+     duplicate images so they cannot leak across splits.
+   - If an image was intentionally transformed, preserve both versions and
+     document the transformation. Do not automatically autocontrast, sharpen,
+     recolor, or discard it merely because it looks unusual.
+   - Leave ambiguous cases flagged for instructor/manual review. Do not
+     silently infer labels from a nearest-neighbor prediction.
+   - Keep the test split out of model selection and tuning.
+
+7. Report conclusions with confidence.
+   - Separate verified mismatches from suspicious candidates.
+   - Include counts, matching method, thresholds, examples, and limitations.
+   - State which corrections were made and which records were left unchanged.
+   - Keep the original course data, reference metadata, comparison audit, and
+     cleaned output reproducible and separate.
+
+Suggested artifacts
+-------------------
+- reference_manifest.csv
+- course_manifest.csv
+- dataset_comparison_audit.csv
+- confirmed_corrections.csv
+- contact sheets for ambiguous visual matches
+
+Access note
+-----------
+The Hugging Face card has no declared license field and includes ImageNet
+access terms. Follow the repository's access and research/educational-use
+conditions; do not assume public hosting grants unrestricted reuse.

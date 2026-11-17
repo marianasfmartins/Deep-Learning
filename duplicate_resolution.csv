@@ -1,13 +1,23 @@
 filename,decision,reason
 image_000594.JPEG,exclude,Excluded per duplicate review decision.
-image_013624.JPEG,keep,
-image_033614.JPEG,exclude,Excluded per duplicate review decision.
-image_040383.JPEG,exclude,Excluded per duplicate review decision.
+image_000889.JPEG,exclude,Excluded per duplicate review decision.
+image_000940.JPEG,exclude,Excluded per duplicate review decision.
 image_001091.JPEG,exclude,Excluded per duplicate review decision.
-image_059134.JPEG,exclude,Excluded per duplicate review decision.
-image_027767.JPEG,keep,
-image_047292.JPEG,exclude,Excluded per duplicate review decision.
 image_011908.JPEG,exclude,Excluded per duplicate review decision.
-image_030313.JPEG,exclude,Excluded per duplicate review decision.
+image_013505.JPEG,exclude,Excluded per duplicate review decision.
+image_013513.JPEG,exclude,Excluded per duplicate review decision.
+image_013624.JPEG,keep,Kept after manual visual review.
 image_015110.JPEG,exclude,Excluded per duplicate review decision.
+image_027767.JPEG,keep,Kept after manual visual review.
+image_030313.JPEG,exclude,Excluded per duplicate review decision.
+image_033614.JPEG,exclude,Excluded per duplicate review decision.
+image_033831.JPEG,exclude,Excluded per duplicate review decision.
+image_033901.JPEG,exclude,Excluded per duplicate review decision.
+image_037656.JPEG,exclude,Excluded per duplicate review decision.
+image_037849.JPEG,exclude,Excluded per duplicate review decision.
+image_040383.JPEG,exclude,Excluded per duplicate review decision.
+image_047292.JPEG,exclude,Excluded per duplicate review decision.
 image_048342.JPEG,exclude,Excluded per duplicate review decision.
+image_059134.JPEG,exclude,Excluded per duplicate review decision.
+image_059137.JPEG,exclude,Excluded per duplicate review decision.
+image_059146.JPEG,exclude,Excluded per duplicate review decision.

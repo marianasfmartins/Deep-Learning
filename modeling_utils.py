@@ -59,7 +59,7 @@ def _model_specs(tf: Any) -> dict[str, ModelSpec]:
 
 def _load_splits(
     split_dir: Path, images_dir: Path
-) -> tuple[pd.DataFrame, pd.DataFrame, int]:
+) -> tuple[pd.DataFrame, pd.DataFrame, int, pd.DataFrame]:
     required_split_columns = {"filename", "label"}
     train = pd.read_csv(split_dir / "train.csv")
     validation = pd.read_csv(split_dir / "val.csv")
@@ -82,8 +82,13 @@ def _load_splits(
         frame["filename"] = frame["filename"].astype(str)
         frame["label"] = labels.astype(np.int32)
 
-    if "label" not in classes.columns or classes.empty:
-        raise ValueError("classes.csv must contain a non-empty 'label' column")
+    if classes.empty:
+        raise ValueError("classes.csv must not be empty")
+    missing_class_columns = {"label", "class_id", "description"} - set(classes.columns)
+    if missing_class_columns:
+        raise ValueError(
+            f"classes.csv is missing columns: {sorted(missing_class_columns)}"
+        )
     num_classes = len(classes)
     expected_labels = set(range(num_classes))
     class_labels = pd.to_numeric(classes["label"], errors="raise")
@@ -94,6 +99,9 @@ def _load_splits(
         raise ValueError(
             "classes.csv labels must be unique integers from 0 to num_classes - 1"
         )
+    classes = classes.copy()
+    classes["label"] = class_labels.astype(np.int32)
+    classes = classes.sort_values("label").reset_index(drop=True)
     for split_name, frame in (("train", train), ("validation", validation)):
         actual_labels = set(frame["label"].unique())
         if actual_labels != expected_labels:
@@ -126,7 +134,79 @@ def _load_splits(
             f"examples: {missing_files[:5]}"
         )
 
-    return train, validation, num_classes
+    return train, validation, num_classes, classes
+
+
+def _oversample_training_data(
+    train: pd.DataFrame,
+    min_samples_per_class: int = 200,
+) -> pd.DataFrame:
+    """Randomly duplicate minority-class rows up to a training-count floor."""
+    if min_samples_per_class <= 0:
+        raise ValueError("min_samples_per_class must be positive")
+    if "label" not in train.columns:
+        raise ValueError("training data is missing the required 'label' column")
+    if train.empty:
+        raise ValueError("cannot oversample an empty training dataset")
+
+    counts = train["label"].value_counts()
+    rng = np.random.default_rng(SEED)
+    extra_rows = []
+    for label, count in counts.items():
+        if count < min_samples_per_class:
+            class_rows = train.loc[train["label"] == label]
+            sampled_indices = rng.choice(
+                class_rows.index.to_numpy(),
+                size=min_samples_per_class - int(count),
+                replace=True,
+            )
+            extra_rows.append(train.loc[sampled_indices])
+
+    if not extra_rows:
+        return train.copy().reset_index(drop=True)
+    return pd.concat([train, *extra_rows], ignore_index=True).sample(
+        frac=1,
+        random_state=SEED,
+    ).reset_index(drop=True)
+
+
+def _build_training_augmentation() -> Any:
+    """Create modest online augmentations suited to small natural images."""
+    try:
+        import albumentations as A
+    except ModuleNotFoundError as error:
+        if error.name != "albumentations":
+            raise
+        raise RuntimeError(
+            "Albumentations is required for online training augmentation. "
+            "Install the optional dependencies with "
+            "`python -m pip install -r requirements-modeling.txt`."
+        ) from error
+
+    return A.Compose(
+        [
+            A.HorizontalFlip(p=0.5),
+            A.Affine(
+                scale=(0.9, 1.1),
+                translate_percent=(-0.05, 0.05),
+                rotate=(-15, 15),
+                p=0.5,
+            ),
+            A.RandomBrightnessContrast(
+                brightness_limit=0.15,
+                contrast_limit=0.15,
+                p=0.3,
+            ),
+        ],
+        seed=SEED,
+    )
+
+
+def _augment_numpy_image(image: Any, augmentation: Any) -> np.ndarray:
+    """Apply one fresh Albumentations transform to a decoded uint8 image."""
+    image_array = image.numpy() if hasattr(image, "numpy") else np.asarray(image)
+    augmented = augmentation(image=image_array)["image"]
+    return np.asarray(augmented, dtype=np.uint8)
 
 
 def _make_dataset(
@@ -136,6 +216,7 @@ def _make_dataset(
     tf: Any,
     batch_size: int,
     shuffle: bool,
+    augmentation: Any | None = None,
 ) -> Any:
     filenames = frame["filename"].astype(str).to_numpy()
     labels = frame["label"].to_numpy(dtype=np.int32)
@@ -152,6 +233,13 @@ def _make_dataset(
     def decode_and_resize(path: Any, label: Any) -> tuple[Any, Any]:
         image_bytes = tf.io.read_file(path)
         image = tf.io.decode_jpeg(image_bytes, channels=3)
+        if augmentation is not None:
+            image = tf.py_function(
+                func=lambda decoded: _augment_numpy_image(decoded, augmentation),
+                inp=[image],
+                Tout=tf.uint8,
+            )
+            image.set_shape([None, None, 3])
         image = tf.image.resize(image, (IMAGE_SIZE, IMAGE_SIZE))
         return tf.cast(image, tf.float32), label
 
@@ -170,7 +258,11 @@ def _make_dataset(
     ).prefetch(tf.data.AUTOTUNE)
 
 
-def _metric_values(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
+def _metric_values(
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    num_classes: int,
+) -> dict[str, float]:
     return {
         "accuracy": float(accuracy_score(y_true, y_pred)),
         "precision": float(
@@ -183,7 +275,22 @@ def _metric_values(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
             f1_score(y_true, y_pred, average="weighted", zero_division=0)
         ),
         "macro_f1_score": float(
-            f1_score(y_true, y_pred, average="macro", zero_division=0)
+            f1_score(
+                y_true,
+                y_pred,
+                labels=np.arange(num_classes),
+                average="macro",
+                zero_division=0,
+            )
+        ),
+        "macro_recall": float(
+            recall_score(
+                y_true,
+                y_pred,
+                labels=np.arange(num_classes),
+                average="macro",
+                zero_division=0,
+            )
         ),
     }
 
@@ -195,8 +302,19 @@ def compare_pretrained_cnns(
     batch_size: int = 32,
     epochs: int = 5,
     results_path: Path | None = BASE / "splits" / "model_selection_metrics.csv",
+    per_class_results_path: Path | None = (
+        BASE / "splits" / "model_selection_per_class_recall.csv"
+    ),
+    oversample_minority_classes: bool = True,
+    min_samples_per_class: int = 200,
+    augment_training: bool = True,
 ) -> pd.DataFrame:
-    """Train frozen ImageNet feature extractors and compare train/validation metrics."""
+    """Train pretrained CNNs and compare train/validation classification metrics.
+
+    Minority training classes are randomly oversampled to a sample-count floor,
+    with online Albumentations applied after JPEG decoding. Validation and the
+    train-set metric pass retain their original rows and are never augmented.
+    """
     split_dir = Path(split_dir)
     images_dir = Path(images_dir)
     if batch_size <= 0:
@@ -215,18 +333,37 @@ def compare_pretrained_cnns(
     if unknown_models:
         raise ValueError(f"unknown model names: {sorted(unknown_models)}")
 
-    train, validation, num_classes = _load_splits(split_dir, images_dir)
+    train, validation, num_classes, classes = _load_splits(split_dir, images_dir)
+    training_rows = (
+        _oversample_training_data(train, min_samples_per_class)
+        if oversample_minority_classes
+        else train.copy()
+    )
+    if oversample_minority_classes:
+        print(
+            f"Training rows: {len(train):,} -> {len(training_rows):,}; "
+            f"classes below {min_samples_per_class} samples were oversampled."
+        )
+    augmentation = _build_training_augmentation() if augment_training else None
     tf = _require_tensorflow()
     specs = _model_specs(tf)
 
     tf.keras.utils.set_random_seed(SEED)
     results: list[dict[str, Any]] = []
+    per_class_results: list[dict[str, Any]] = []
+    class_metadata = classes.set_index("label")
 
     for model_name in selected_models:
         tf.keras.backend.clear_session()
         spec = specs[model_name]
         train_dataset = _make_dataset(
-            train, images_dir, spec.preprocess_input, tf, batch_size, shuffle=True
+            training_rows,
+            images_dir,
+            spec.preprocess_input,
+            tf,
+            batch_size,
+            shuffle=True,
+            augmentation=augmentation,
         )
         train_evaluation_dataset = _make_dataset(
             train, images_dir, spec.preprocess_input, tf, batch_size, shuffle=False
@@ -280,8 +417,28 @@ def compare_pretrained_cnns(
             results.append({
                 "model": model_name,
                 "split": split_name,
-                **_metric_values(frame["label"].to_numpy(), predictions),
+                **_metric_values(
+                    frame["label"].to_numpy(), predictions, num_classes
+                ),
             })
+            class_recalls = recall_score(
+                frame["label"].to_numpy(),
+                predictions,
+                labels=np.arange(num_classes),
+                average=None,
+                zero_division=0,
+            )
+            per_class_results.extend(
+                {
+                    "model": model_name,
+                    "split": split_name,
+                    "label": label,
+                    "class_id": class_metadata.loc[label, "class_id"],
+                    "description": class_metadata.loc[label, "description"],
+                    "recall": float(class_recalls[label]),
+                }
+                for label in range(num_classes)
+            )
 
         del model, base_model
 
@@ -293,4 +450,8 @@ def compare_pretrained_cnns(
         results_path = Path(results_path)
         results_path.parent.mkdir(parents=True, exist_ok=True)
         results_frame.to_csv(results_path, index=False)
+    if per_class_results_path is not None:
+        per_class_results_path = Path(per_class_results_path)
+        per_class_results_path.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(per_class_results).to_csv(per_class_results_path, index=False)
     return results_frame

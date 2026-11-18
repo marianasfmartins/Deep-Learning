@@ -1,0 +1,25 @@
+{
+    "trial_id": "0012",
+    "val_macro_f1": 0.06387627869844437,
+    "hyperparameters": {
+        "conv_blocks": 2,
+        "base_filters": 32,
+        "kernel_size": 5,
+        "activation": "selu",
+        "pooling": "max_pooling",
+        "dense_layers": 2,
+        "dense_units": 256,
+        "dropout_rate": 0.0,
+        "batch_normalization": true,
+        "l1": 1.3834969966162908e-05,
+        "l2": 0.004447313320824202,
+        "learning_rate": 0.0003800349902627213,
+        "optimizer": "rmsprop",
+        "batch_size": 32,
+        "tuner/epochs": 9,
+        "tuner/initial_epoch": 3,
+        "tuner/bracket": 2,
+        "tuner/round": 2,
+        "tuner/trial_id": "0009"
+    }
+}

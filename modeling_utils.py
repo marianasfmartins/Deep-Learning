@@ -9,6 +9,8 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
+from preprocessing_utils import prepare_minority_training_rows
+
 
 BASE = Path(__file__).resolve().parent
 IMAGE_SIZE = 224
@@ -141,37 +143,17 @@ def _oversample_training_data(
     train: pd.DataFrame,
     min_samples_per_class: int = 200,
 ) -> pd.DataFrame:
-    """Randomly duplicate minority-class rows up to a training-count floor."""
-    if min_samples_per_class <= 0:
-        raise ValueError("min_samples_per_class must be positive")
-    if "label" not in train.columns:
-        raise ValueError("training data is missing the required 'label' column")
-    if train.empty:
-        raise ValueError("cannot oversample an empty training dataset")
-
-    counts = train["label"].value_counts()
-    rng = np.random.default_rng(SEED)
-    extra_rows = []
-    for label, count in counts.items():
-        if count < min_samples_per_class:
-            class_rows = train.loc[train["label"] == label]
-            sampled_indices = rng.choice(
-                class_rows.index.to_numpy(),
-                size=min_samples_per_class - int(count),
-                replace=True,
-            )
-            extra_rows.append(train.loc[sampled_indices])
-
-    if not extra_rows:
-        return train.copy().reset_index(drop=True)
-    return pd.concat([train, *extra_rows], ignore_index=True).sample(
-        frac=1,
-        random_state=SEED,
-    ).reset_index(drop=True)
+    """Prepare minority-only augmentation rows from the training labels."""
+    return prepare_minority_training_rows(
+        train,
+        train["label"].to_numpy(),
+        min_samples_per_class=min_samples_per_class,
+        seed=SEED,
+    )
 
 
-def _build_training_augmentation() -> Any:
-    """Create modest online augmentations suited to small natural images."""
+def _build_minority_augmentation() -> Any:
+    """Create modest online Albumentations transforms for minority copies."""
     try:
         import albumentations as A
     except ModuleNotFoundError as error:
@@ -220,8 +202,14 @@ def _make_dataset(
 ) -> Any:
     filenames = frame["filename"].astype(str).to_numpy()
     labels = frame["label"].to_numpy(dtype=np.int32)
+    if "is_augmented" in frame.columns:
+        augmentation_flags = frame["is_augmented"].fillna(False).to_numpy(dtype=bool)
+    else:
+        augmentation_flags = np.zeros(len(frame), dtype=bool)
     paths = np.asarray([str(images_dir / name) for name in filenames])
-    dataset = tf.data.Dataset.from_tensor_slices((paths, labels))
+    dataset = tf.data.Dataset.from_tensor_slices(
+        (paths, labels, augmentation_flags)
+    )
 
     if shuffle:
         dataset = dataset.shuffle(
@@ -230,14 +218,25 @@ def _make_dataset(
             reshuffle_each_iteration=True,
         )
 
-    def decode_and_resize(path: Any, label: Any) -> tuple[Any, Any]:
+    def decode_and_resize(
+        path: Any,
+        label: Any,
+        should_augment: Any,
+    ) -> tuple[Any, Any]:
         image_bytes = tf.io.read_file(path)
         image = tf.io.decode_jpeg(image_bytes, channels=3)
         if augmentation is not None:
-            image = tf.py_function(
-                func=lambda decoded: _augment_numpy_image(decoded, augmentation),
-                inp=[image],
-                Tout=tf.uint8,
+            decoded_image = image
+            image = tf.cond(
+                should_augment,
+                lambda: tf.py_function(
+                    func=lambda decoded: _augment_numpy_image(
+                        decoded, augmentation
+                    ),
+                    inp=[decoded_image],
+                    Tout=tf.uint8,
+                ),
+                lambda: decoded_image,
             )
             image.set_shape([None, None, 3])
         image = tf.image.resize(image, (IMAGE_SIZE, IMAGE_SIZE))
@@ -308,12 +307,13 @@ def compare_pretrained_cnns(
     oversample_minority_classes: bool = True,
     min_samples_per_class: int = 200,
     augment_training: bool = True,
+    training_rows: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Train pretrained CNNs and compare train/validation classification metrics.
 
-    Minority training classes are randomly oversampled to a sample-count floor,
-    with online Albumentations applied after JPEG decoding. Validation and the
-    train-set metric pass retain their original rows and are never augmented.
+    Training rows below the class-count floor are copied and augmented online
+    with Albumentations. Original training rows, validation, and metric-evaluation
+    images remain unaugmented.
     """
     split_dir = Path(split_dir)
     images_dir = Path(images_dir)
@@ -334,17 +334,68 @@ def compare_pretrained_cnns(
         raise ValueError(f"unknown model names: {sorted(unknown_models)}")
 
     train, validation, num_classes, classes = _load_splits(split_dir, images_dir)
-    training_rows = (
-        _oversample_training_data(train, min_samples_per_class)
-        if oversample_minority_classes
-        else train.copy()
-    )
-    if oversample_minority_classes:
-        print(
-            f"Training rows: {len(train):,} -> {len(training_rows):,}; "
-            f"classes below {min_samples_per_class} samples were oversampled."
+    if training_rows is None:
+        if oversample_minority_classes:
+            training_rows = _oversample_training_data(
+                train, min_samples_per_class
+            )
+        else:
+            training_rows = train.copy()
+            training_rows["is_augmented"] = False
+    else:
+        if oversample_minority_classes:
+            raise ValueError(
+                "set oversample_minority_classes=False when passing training_rows"
+            )
+        required_training_columns = {"filename", "label", "is_augmented"}
+        missing_columns = required_training_columns - set(training_rows.columns)
+        if missing_columns:
+            raise ValueError(
+                "training_rows is missing columns: "
+                f"{sorted(missing_columns)}"
+            )
+        if training_rows.empty:
+            raise ValueError("training_rows must contain at least one sample")
+        training_rows = training_rows.copy()
+        training_rows["filename"] = training_rows["filename"].astype(str)
+        training_rows["is_augmented"] = (
+            training_rows["is_augmented"].fillna(False).astype(bool)
         )
-    augmentation = _build_training_augmentation() if augment_training else None
+        unaugmented_filenames = training_rows.loc[
+            ~training_rows["is_augmented"], "filename"
+        ]
+        if (
+            len(unaugmented_filenames) != len(train)
+            or set(unaugmented_filenames) != set(train["filename"])
+        ):
+            raise ValueError(
+                "training_rows must contain every original training sample once"
+            )
+        if set(training_rows["filename"]) & set(validation["filename"]):
+            raise ValueError("training_rows must not contain validation images")
+        expected_labels = training_rows["filename"].map(
+            train.set_index("filename")["label"]
+        )
+        if (
+            expected_labels.isna().any()
+            or not np.array_equal(
+                expected_labels.to_numpy(),
+                pd.to_numeric(training_rows["label"], errors="raise").to_numpy(),
+            )
+        ):
+            raise ValueError(
+                "training_rows may only contain filenames and labels from train.csv"
+            )
+
+    augmented_row_count = int(training_rows["is_augmented"].fillna(False).sum())
+    print(
+        f"Training rows: {len(train):,} originals + "
+        f"{augmented_row_count:,} minority augmentation rows = "
+        f"{len(training_rows):,} total."
+    )
+    augmentation = (
+        _build_minority_augmentation() if augment_training else None
+    )
     tf = _require_tensorflow()
     specs = _model_specs(tf)
 

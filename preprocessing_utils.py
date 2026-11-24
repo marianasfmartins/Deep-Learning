@@ -198,6 +198,68 @@ def remove_suspicious_images(labels, suspicious_filenames):
     return cleaned.reset_index(drop=True)
 
 
+def prepare_minority_training_rows(
+    training_rows,
+    y_train,
+    min_samples_per_class=200,
+    seed=SEED,
+):
+    """Create marked training-only copies for classes below a count floor.
+
+    The returned rows identify copies with ``is_augmented`` so the modeling
+    pipeline can apply Albumentations only to those samples.
+    """
+    required = {"filename", "label"}
+    missing_columns = required - set(training_rows.columns)
+    if missing_columns:
+        raise ValueError(
+            f"training data is missing columns: {sorted(missing_columns)}"
+        )
+    if (
+        isinstance(min_samples_per_class, bool)
+        or not isinstance(min_samples_per_class, (int, np.integer))
+        or min_samples_per_class <= 0
+    ):
+        raise ValueError("min_samples_per_class must be a positive integer")
+
+    y_train = np.asarray(y_train)
+    if y_train.ndim != 1 or len(y_train) != len(training_rows):
+        raise ValueError("y_train must be one-dimensional and match training_rows")
+    if len(y_train) == 0:
+        raise ValueError("cannot augment an empty training dataset")
+    if pd.isna(y_train).any():
+        raise ValueError("y_train must not contain missing labels")
+
+    row_labels = pd.to_numeric(training_rows["label"], errors="raise").to_numpy()
+    if not np.array_equal(row_labels, y_train):
+        raise ValueError("y_train must match the labels in training_rows")
+
+    prepared_rows = training_rows.copy()
+    prepared_rows["is_augmented"] = False
+    rng = np.random.default_rng(seed)
+    additional_rows = []
+    class_counts = pd.Series(y_train).value_counts()
+    for label, count in class_counts.items():
+        if count >= min_samples_per_class:
+            continue
+        class_positions = np.flatnonzero(y_train == label)
+        sampled_positions = rng.choice(
+            class_positions,
+            size=min_samples_per_class - int(count),
+            replace=True,
+        )
+        class_copies = training_rows.iloc[sampled_positions].copy()
+        class_copies["is_augmented"] = True
+        additional_rows.append(class_copies)
+
+    if not additional_rows:
+        return prepared_rows.reset_index(drop=True)
+    return pd.concat([prepared_rows, *additional_rows], ignore_index=True).sample(
+        frac=1,
+        random_state=seed,
+    ).reset_index(drop=True)
+
+
 def measure_image_sharpness(image):
     """Estimate focus using the variance of the grayscale Laplacian."""
     grayscale = np.asarray(image.convert("L"), dtype=np.float32)
@@ -215,12 +277,26 @@ def measure_image_sharpness(image):
     return float(np.var(laplacian, dtype=np.float64))
 
 
-def preprocess_images(labels, source_images_dir, destination_images_dir):
-    """Autocontrast images, convert them to RGB, and return sharpness measurements."""
+def preprocess_images(
+    labels,
+    source_images_dir,
+    destination_images_dir,
+    minimum_sharpness=10.0,
+):
+    """Filter low-sharpness images, normalize retained images, and audit scores."""
     required = {"filename"}
     missing_columns = required - set(labels.columns)
     if missing_columns:
         raise ValueError(f"labels are missing columns: {sorted(missing_columns)}")
+
+    try:
+        minimum_sharpness = float(minimum_sharpness)
+    except (TypeError, ValueError) as error:
+        raise ValueError(
+            "minimum_sharpness must be a finite non-negative number"
+        ) from error
+    if not np.isfinite(minimum_sharpness) or minimum_sharpness < 0:
+        raise ValueError("minimum_sharpness must be a finite non-negative number")
 
     filenames = labels["filename"].astype(str)
     if filenames.duplicated().any():
@@ -235,7 +311,18 @@ def preprocess_images(labels, source_images_dir, destination_images_dir):
 
     source_images_dir = Path(source_images_dir)
     destination_images_dir = Path(destination_images_dir)
+    if source_images_dir.resolve() == destination_images_dir.resolve():
+        raise ValueError("source and destination image directories must be different")
     destination_images_dir.mkdir(parents=True, exist_ok=True)
+    filename_set = set(filenames)
+    for existing_path in destination_images_dir.iterdir():
+        if (
+            existing_path.is_file()
+            and existing_path.suffix.lower() in {".jpg", ".jpeg"}
+            and existing_path.name not in filename_set
+        ):
+            existing_path.unlink()
+
     sharpness_rows = []
 
     for filename in filenames:
@@ -246,19 +333,34 @@ def preprocess_images(labels, source_images_dir, destination_images_dir):
             raise ValueError(f"expected a JPEG image, found: {source_path}")
 
         with Image.open(source_path) as image:
-            sharpness_rows.append({
-                "filename": filename,
-                "sharpness": measure_image_sharpness(image),
-            })
+            sharpness = measure_image_sharpness(image)
+            retained = sharpness >= minimum_sharpness
+            sharpness_rows.append(
+                {
+                    "filename": filename,
+                    "sharpness": sharpness,
+                    "minimum_sharpness": minimum_sharpness,
+                    "retained": retained,
+                }
+            )
+            destination_path = destination_images_dir / filename
+            if not retained:
+                if destination_path.exists():
+                    destination_path.unlink()
+                continue
+
             normalization_input = image if image.mode == "L" else image.convert("RGB")
             processed = ImageOps.autocontrast(normalization_input).convert("RGB")
             processed.save(
-                destination_images_dir / filename,
+                destination_path,
                 format="JPEG",
                 quality=95,
                 subsampling=0,
             )
-    return pd.DataFrame(sharpness_rows, columns=["filename", "sharpness"])
+    return pd.DataFrame(
+        sharpness_rows,
+        columns=["filename", "sharpness", "minimum_sharpness", "retained"],
+    )
 
 
 def save_cleaned_dataset(labels, output_path):

@@ -106,6 +106,7 @@ def show_outliers(df_subset, title, images_dir=IMAGES_DIR):
         with Image.open(Path(images_dir) / str(row["filename"])) as image:
             ax.imshow(image.convert("RGB"))
         ax.set_title(
+            f"{row['filename']}\n"
             f"B:{row['brightness']:.1f} | C:{row['contrast']:.1f} "
             f"| S:{row['sharpness']:.1f}\n{str(row['description'])[:15]}",
             fontsize=8,

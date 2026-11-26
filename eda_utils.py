@@ -20,11 +20,49 @@ PHASH_THRESHOLD = 4
 
 
 def inspect_image(filename, images_dir=IMAGES_DIR):
+    """Fully decode one image and report what was found.
+
+    ``Image.open`` only reads the file header, so a truncated or half-written
+    JPEG would still look fine. ``verify`` checks the file structure and
+    ``load`` decodes every pixel, which is what catches real corruption.
+    """
+    path = Path(images_dir) / str(filename)
+    result = {
+        "filename": str(filename),
+        "exists": path.is_file(),
+        "file_bytes": 0,
+        "file_format": None,
+        "width": None,
+        "height": None,
+        "color_mode": None,
+        "readable": False,
+        "error": "",
+    }
+    if not result["exists"]:
+        result["error"] = "file not found"
+        return result
+
+    result["file_bytes"] = path.stat().st_size
+    if result["file_bytes"] == 0:
+        result["error"] = "empty file (0 bytes)"
+        return result
+
     try:
-        with Image.open(Path(images_dir) / str(filename)) as image:
-            return image.size, image.mode, True
-    except (OSError, ValueError):
-        return None, None, False
+        with Image.open(path) as image:
+            image.verify()
+        # verify() leaves the image unusable, so open it again to decode the pixels.
+        with Image.open(path) as image:
+            image.load()
+            result.update(
+                file_format=image.format,
+                width=image.width,
+                height=image.height,
+                color_mode=image.mode,
+                readable=True,
+            )
+    except (OSError, ValueError, SyntaxError) as error:
+        result["error"] = f"{type(error).__name__}: {error}"
+    return result
 
 
 def get_hash(filename, images_dir=IMAGES_DIR):
@@ -95,23 +133,74 @@ def get_image_stats(filename, images_dir=IMAGES_DIR):
         return None, None, None
 
 
-def show_outliers(df_subset, title, images_dir=IMAGES_DIR):
+def iqr_cutoffs(values, log_scale=False, k=1.5):
+    """Return (low, high) outlier cutoffs using the boxplot (Tukey IQR) rule.
+
+    A value is an outlier when it lies more than ``k`` x IQR below the 25th
+    percentile (Q1) or above the 75th percentile (Q3). With ``log_scale`` the
+    rule is applied to log10 of the values and the cutoffs are converted back,
+    which suits metrics that span several orders of magnitude (sharpness).
+    """
+    values = pd.Series(values, dtype=float).dropna()
+    if log_scale:
+        values = np.log10(values.clip(lower=1e-6))
+    q1, q3 = values.quantile([0.25, 0.75])
+    iqr = q3 - q1
+    low, high = q1 - k * iqr, q3 + k * iqr
+    if log_scale:
+        low, high = 10 ** low, 10 ** high
+    return float(low), float(high)
+
+
+def plot_quality_distributions(dataframe, cutoffs, log_scale_metrics=("sharpness",)):
+    """Histogram each quality metric, with its cutoffs and flagged areas shaded."""
+    metrics = list(cutoffs)
+    fig, axes = plt.subplots(1, len(metrics), figsize=(6 * len(metrics), 4))
+    axes = np.atleast_1d(axes)
+    for ax, metric in zip(axes, metrics):
+        values = dataframe[metric].dropna()
+        low, high = cutoffs[metric]
+        if metric in log_scale_metrics:
+            bins = np.logspace(np.log10(values.min()), np.log10(values.max()), 60)
+            ax.set_xscale("log")
+        else:
+            bins = 60
+        ax.hist(values, bins=bins, color="#4C72B0", edgecolor="white", linewidth=0.3)
+
+        x_min, x_max = values.min(), values.max()
+        n_low, n_high = int((values < low).sum()), int((values > high).sum())
+        if low > x_min:
+            ax.axvspan(x_min, low, color="#D62728", alpha=0.15)
+        if high < x_max:
+            ax.axvspan(high, x_max, color="#D62728", alpha=0.15)
+        ax.axvline(low, color="#D62728", linestyle="--", label=f"low cutoff {low:,.1f} ({n_low:,} images)")
+        ax.axvline(high, color="#D62728", linestyle=":", label=f"high cutoff {high:,.1f} ({n_high:,} images)")
+        ax.set_xlim(min(x_min, low), max(x_max, high))
+        ax.set_title(metric.capitalize() + (" (log scale)" if metric in log_scale_metrics else ""))
+        ax.set_xlabel(metric)
+        ax.set_ylabel("Number of images")
+        ax.legend(fontsize=8)
+    fig.tight_layout()
+    plt.show()
+
+
+def show_outliers(df_subset, title, metric=None, n_cols=8, images_dir=IMAGES_DIR):
+    """Show images in a grid with filename, class and (optionally) one metric value."""
     if df_subset.empty:
-        print(f"No images available to display for: {title}")
+        print(f"No images to display for: {title}")
         return
 
-    fig, axes = plt.subplots(1, len(df_subset), figsize=(13, 2.8))
-    axes = np.atleast_1d(axes)
-    for ax, (_, row) in zip(axes, df_subset.iterrows()):
+    n_rows = int(np.ceil(len(df_subset) / n_cols))
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(2 * n_cols, 2.4 * n_rows), squeeze=False)
+    for ax in axes.flat:
+        ax.axis("off")
+    for ax, (_, row) in zip(axes.flat, df_subset.iterrows()):
         with Image.open(Path(images_dir) / str(row["filename"])) as image:
             ax.imshow(image.convert("RGB"))
-        ax.set_title(
-            f"{row['filename']}\n"
-            f"B:{row['brightness']:.1f} | C:{row['contrast']:.1f} "
-            f"| S:{row['sharpness']:.1f}\n{str(row['description'])[:15]}",
-            fontsize=8,
-        )
-        ax.axis("off")
+        caption = f"{row['filename']}\n{str(row['description'])[:16]}"
+        if metric is not None:
+            caption += f"\n{metric}: {row[metric]:,.1f}"
+        ax.set_title(caption, fontsize=7)
     fig.suptitle(title, fontsize=11, fontweight="bold")
     fig.tight_layout()
     plt.show()

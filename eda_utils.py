@@ -124,13 +124,121 @@ def find_perceptual_duplicate_pairs(phashes, threshold=PHASH_THRESHOLD):
     return pairs
 
 
+# Standard JPEG luminance quantization table (quality 50, ITU-T T.81 Annex K).
+_STANDARD_LUMA_TABLE = np.array([
+    16, 11, 10, 16, 24, 40, 51, 61, 12, 12, 14, 19, 26, 58, 60, 55,
+    14, 13, 16, 24, 40, 57, 69, 56, 14, 17, 22, 29, 51, 87, 80, 62,
+    18, 22, 37, 56, 68, 109, 103, 77, 24, 35, 55, 64, 81, 104, 113, 92,
+    49, 64, 78, 87, 103, 121, 120, 101, 72, 92, 95, 98, 112, 100, 103, 99,
+], dtype=np.float64)
+
+IMAGE_STAT_COLUMNS = [
+    "brightness", "contrast", "sharpness", "noise", "blockiness", "pixelation", "jpeg_quality",
+]
+
+
+def estimate_jpeg_quality(image):
+    """Estimate the quality (1-100) a JPEG was last saved with, from its file header.
+
+    Encoders such as libjpeg scale one standard luminance table by the chosen
+    quality. Comparing the file's table with the standard one inverts that
+    scaling. Returns NaN for files that are not JPEGs.
+    """
+    tables = getattr(image, "quantization", None)
+    if not tables or 0 not in tables:
+        return float("nan")
+    scale = 100.0 * np.sum(tables[0]) / _STANDARD_LUMA_TABLE.sum()
+    quality = 5000.0 / scale if scale > 100 else (200.0 - scale) / 2.0
+    return float(np.clip(quality, 1, 100))
+
+
+def _immerkaer_noise_sigma(channel):
+    """Noise standard deviation of one channel (Immerkaer, 1996).
+
+    The 3x3 kernel cancels smooth gradients and straight edges, so what is left
+    is mostly pixel-to-pixel noise.
+    """
+    c = channel
+    response = (
+        c[:-2, :-2] - 2 * c[:-2, 1:-1] + c[:-2, 2:]
+        - 2 * c[1:-1, :-2] + 4 * c[1:-1, 1:-1] - 2 * c[1:-1, 2:]
+        + c[2:, :-2] - 2 * c[2:, 1:-1] + c[2:, 2:]
+    )
+    height, width = c.shape
+    return float(np.sqrt(np.pi / 2) * np.abs(response).sum() / (6 * (width - 2) * (height - 2)))
+
+
+def measure_color_noise(rgb):
+    """Estimate per-pixel colour noise of an RGB array (H x W x 3, float).
+
+    Real texture changes all three channels together, so it mostly cancels in
+    the colour differences R-G and B-G. Sensor-like or added noise is
+    independent per channel and survives there. Measuring noise on R-G and B-G
+    therefore separates noise from fine texture. Grayscale images score 0.
+    """
+    red, green, blue = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    return (_immerkaer_noise_sigma(red - green) + _immerkaer_noise_sigma(blue - green)) / 2
+
+
+def _edge_step_profile(gray):
+    """Mean absolute step between pixel p and p+1, for each position p (both axes pooled)."""
+    horizontal = np.abs(np.diff(gray, axis=1)).mean(axis=0)
+    vertical = np.abs(np.diff(gray, axis=0)).mean(axis=1)
+    return (horizontal + vertical) / 2
+
+
+def measure_jpeg_blockiness(gray, eps=0.5):
+    """How much stronger edges are on the 8x8 JPEG block grid than inside blocks.
+
+    Heavy JPEG compression makes each 8x8 block flat on its own, so steps appear
+    at the block borders. Values near 1 mean no visible blocks; clearly above 1
+    means block artifacts. Comparing with the strongest inside position keeps
+    pixelated images (whose steps also fall inside 8x8 blocks) from scoring here.
+    """
+    profile = _edge_step_profile(gray)
+    position = np.arange(len(profile)) % 8
+    border = profile[position == 7].mean()
+    strongest_inside = max(profile[position == offset].mean() for offset in range(7))
+    return float((border + eps) / (strongest_inside + eps))
+
+
+def measure_pixelation(gray, factors=range(2, 8), eps=0.5):
+    """Detect nearest-neighbour upscaling (images made of f x f pixel blocks).
+
+    For each block size f, compare the typical step at block borders with the
+    typical step inside blocks; pixelated images have steps only at borders.
+    Medians over positions ignore single strong edges such as frame borders.
+    Returns the largest ratio over f (about 1 = not pixelated).
+    """
+    profile = _edge_step_profile(gray)
+    index = np.arange(len(profile))
+    best = 1.0
+    for factor in factors:
+        border = (index + 1) % factor == 0
+        ratio = (np.median(profile[border]) + eps) / (np.median(profile[~border]) + eps)
+        best = max(best, float(ratio))
+    return best
+
+
 def get_image_stats(filename, images_dir=IMAGES_DIR):
+    """Return the image-quality metrics of one image as a dict (values None if unreadable)."""
     try:
         with Image.open(Path(images_dir) / str(filename)) as image:
+            jpeg_quality = estimate_jpeg_quality(image)
+            sharpness = measure_image_sharpness(image)
             rgb = np.asarray(image.convert("RGB"), dtype=np.float32)
-            return float(rgb.mean()), float(rgb.std()), measure_image_sharpness(image)
+            gray = np.asarray(image.convert("L"), dtype=np.float32)
     except (OSError, ValueError):
-        return None, None, None
+        return dict.fromkeys(IMAGE_STAT_COLUMNS)
+    return {
+        "brightness": float(rgb.mean()),
+        "contrast": float(rgb.std()),
+        "sharpness": sharpness,
+        "noise": measure_color_noise(rgb),
+        "blockiness": measure_jpeg_blockiness(gray),
+        "pixelation": measure_pixelation(gray),
+        "jpeg_quality": jpeg_quality,
+    }
 
 
 def iqr_cutoffs(values, log_scale=False, k=1.5):
@@ -152,33 +260,112 @@ def iqr_cutoffs(values, log_scale=False, k=1.5):
     return float(low), float(high)
 
 
-def plot_quality_distributions(dataframe, cutoffs, log_scale_metrics=("sharpness",)):
-    """Histogram each quality metric, with its cutoffs and flagged areas shaded."""
+def _format_cutoff(value):
+    return f"{value:,.2f}" if abs(value) < 10 else f"{value:,.1f}"
+
+
+def plot_quality_distributions(
+    dataframe,
+    cutoffs,
+    log_scale_metrics=("sharpness", "noise", "pixelation"),
+    n_cols=3,
+    log_floor=0.01,
+):
+    """Histogram each quality metric, with its cutoffs and flagged areas shaded.
+
+    On log-scaled panels, values below ``log_floor`` (e.g. a noise of 0 for
+    grayscale images) are drawn at ``log_floor``.
+    """
     metrics = list(cutoffs)
-    fig, axes = plt.subplots(1, len(metrics), figsize=(6 * len(metrics), 4))
-    axes = np.atleast_1d(axes)
-    for ax, metric in zip(axes, metrics):
-        values = dataframe[metric].dropna()
+    n_rows = int(np.ceil(len(metrics) / n_cols))
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(6 * n_cols, 4 * n_rows), squeeze=False)
+    for ax in axes.flat[len(metrics):]:
+        ax.axis("off")
+    for ax, metric in zip(axes.flat, metrics):
+        raw_values = dataframe[metric].dropna()
         low, high = cutoffs[metric]
+        n_low, n_high = int((raw_values < low).sum()), int((raw_values > high).sum())
         if metric in log_scale_metrics:
+            values = raw_values.clip(lower=log_floor)
             bins = np.logspace(np.log10(values.min()), np.log10(values.max()), 60)
             ax.set_xscale("log")
         else:
+            values = raw_values
             bins = 60
         ax.hist(values, bins=bins, color="#4C72B0", edgecolor="white", linewidth=0.3)
 
         x_min, x_max = values.min(), values.max()
-        n_low, n_high = int((values < low).sum()), int((values > high).sum())
-        if low > x_min:
-            ax.axvspan(x_min, low, color="#D62728", alpha=0.15)
+        drawn_low = max(low, log_floor) if metric in log_scale_metrics else low
+        if drawn_low > x_min:
+            ax.axvspan(x_min, drawn_low, color="#D62728", alpha=0.15)
         if high < x_max:
             ax.axvspan(high, x_max, color="#D62728", alpha=0.15)
-        ax.axvline(low, color="#D62728", linestyle="--", label=f"low cutoff {low:,.1f} ({n_low:,} images)")
-        ax.axvline(high, color="#D62728", linestyle=":", label=f"high cutoff {high:,.1f} ({n_high:,} images)")
-        ax.set_xlim(min(x_min, low), max(x_max, high))
+        ax.axvline(drawn_low, color="#D62728", linestyle="--",
+                   label=f"low cutoff {_format_cutoff(low)} ({n_low:,} images)")
+        ax.axvline(high, color="#D62728", linestyle=":",
+                   label=f"high cutoff {_format_cutoff(high)} ({n_high:,} images)")
+        ax.set_xlim(min(x_min, drawn_low), max(x_max, high))
         ax.set_title(metric.capitalize() + (" (log scale)" if metric in log_scale_metrics else ""))
         ax.set_xlabel(metric)
         ax.set_ylabel("Number of images")
+        ax.legend(fontsize=8)
+    fig.tight_layout()
+    plt.show()
+
+
+def plot_metrics_by_jpeg_quality(
+    dataframe,
+    cutoffs,
+    metrics=("sharpness", "noise", "blockiness", "pixelation"),
+    log_scale_metrics=("sharpness", "noise", "pixelation"),
+    log_floor=0.01,
+):
+    """Bar chart of JPEG save quality, then each metric's histogram split by that quality.
+
+    Each quality level gets its own colour, drawn on shared bins so the groups
+    can be compared directly. The dotted line is the metric's high cutoff and
+    the dashed line its low cutoff (drawn only for metrics flagged on the low side).
+    """
+    quality = dataframe["jpeg_quality"].round()
+    levels = sorted(quality.dropna().unique())
+    palette = ["#4C72B0", "#DD8452", "#55A868", "#C44E52", "#8172B3"]
+    colors = {level: palette[i % len(palette)] for i, level in enumerate(levels)}
+
+    n_panels = 1 + len(metrics)
+    fig, axes = plt.subplots(1, n_panels, figsize=(4.5 * n_panels, 4))
+
+    counts = quality.value_counts().reindex(levels)
+    bars = axes[0].bar([f"q{int(level)}" for level in levels], counts.values,
+                       color=[colors[level] for level in levels])
+    for bar, count in zip(bars, counts.values):
+        axes[0].annotate(f"{count:,}\n({100 * count / len(dataframe):.0f}%)",
+                         (bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                         ha="center", va="bottom", fontsize=8)
+    axes[0].set_ylim(0, counts.max() * 1.2)
+    axes[0].set_title("JPEG save quality")
+    axes[0].set_ylabel("Number of images")
+
+    for ax, metric in zip(axes[1:], metrics):
+        values = dataframe[metric]
+        is_log = metric in log_scale_metrics
+        if is_log:
+            values = values.clip(lower=log_floor)
+            valid = values.dropna()
+            bins = np.logspace(np.log10(valid.min()), np.log10(valid.max()), 60)
+            ax.set_xscale("log")
+        else:
+            bins = np.linspace(values.min(), values.max(), 60)
+        for level in levels:
+            group = values[quality == level].dropna()
+            ax.hist(group, bins=bins, color=colors[level], alpha=0.6,
+                    label=f"q{int(level)} ({len(group):,})")
+        low, high = cutoffs[metric]
+        if metric == "sharpness":
+            ax.axvline(low, color="#D62728", linestyle="--", label=f"low cutoff {_format_cutoff(low)}")
+        else:
+            ax.axvline(high, color="#D62728", linestyle=":", label=f"high cutoff {_format_cutoff(high)}")
+        ax.set_title(metric.capitalize() + (" (log scale)" if is_log else "") + " by JPEG quality")
+        ax.set_xlabel(metric)
         ax.legend(fontsize=8)
     fig.tight_layout()
     plt.show()
@@ -199,7 +386,7 @@ def show_outliers(df_subset, title, metric=None, n_cols=8, images_dir=IMAGES_DIR
             ax.imshow(image.convert("RGB"))
         caption = f"{row['filename']}\n{str(row['description'])[:16]}"
         if metric is not None:
-            caption += f"\n{metric}: {row[metric]:,.1f}"
+            caption += f"\n{metric}: {_format_cutoff(row[metric])}"
         ax.set_title(caption, fontsize=7)
     fig.suptitle(title, fontsize=11, fontweight="bold")
     fig.tight_layout()

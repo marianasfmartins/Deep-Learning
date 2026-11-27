@@ -1,0 +1,4 @@
+# EDA (Section 1) and preprocessing (Section 2)
+ImageHash>=4.3,<5.0                 # perceptual hashes (1.7.2)
+opencv-python-headless>=4.8         # image reading/writing, denoising, CLAHE, filters (Section 2)
+scikit-image>=0.22                  # Richardson-Lucy deblurring (Section 2)

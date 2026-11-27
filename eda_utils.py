@@ -1,17 +1,24 @@
 """Reusable image-audit helpers for the Tiny ImageNet notebook."""
 
 import hashlib
+import io
 from pathlib import Path
 
+import imagehash
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from PIL import Image
-from scipy.fft import dctn
 from sklearn.neighbors import NearestNeighbors
 from torch.utils.data import Dataset
 
-from preprocessing_utils import measure_image_sharpness
+from preprocessing_utils import (  # shared with the preprocessing pipeline
+    iqr_cutoffs,
+    measure_color_noise,
+    measure_image_sharpness,
+    measure_jpeg_blockiness,
+    measure_pixelation,
+)
 
 
 BASE = Path(__file__).resolve().parent
@@ -69,21 +76,15 @@ def get_hash(filename, images_dir=IMAGES_DIR):
     return hashlib.md5((Path(images_dir) / str(filename)).read_bytes()).hexdigest()
 
 
-def compute_perceptual_hash(image_path):
-    with Image.open(image_path) as image:
-        pixels = np.asarray(
-            image.convert("L").resize((32, 32), Image.Resampling.LANCZOS),
-            dtype=np.float32,
-        )
-    coefficients = dctn(pixels, type=2, norm="ortho")
-    low_frequency = coefficients[:8, :8]
-    median = np.median(low_frequency.reshape(-1)[1:])
-    bits = (low_frequency >= median).reshape(-1)
-    return int.from_bytes(np.packbits(bits).tobytes(), byteorder="big")
+def phash_file(path):
+    """Perceptual hash (imagehash.phash, 64 bits) of one image file."""
+    with Image.open(path) as image:
+        return imagehash.phash(image)
 
 
 def _hamming_distance(hash_a, hash_b):
-    return bin(int(hash_a) ^ int(hash_b)).count("1")
+    """Number of differing bits between two imagehash.ImageHash objects."""
+    return int(hash_a - hash_b)
 
 
 def find_perceptual_duplicate_pairs(phashes, threshold=PHASH_THRESHOLD):
@@ -152,74 +153,6 @@ def estimate_jpeg_quality(image):
     return float(np.clip(quality, 1, 100))
 
 
-def _immerkaer_noise_sigma(channel):
-    """Noise standard deviation of one channel (Immerkaer, 1996).
-
-    The 3x3 kernel cancels smooth gradients and straight edges, so what is left
-    is mostly pixel-to-pixel noise.
-    """
-    c = channel
-    response = (
-        c[:-2, :-2] - 2 * c[:-2, 1:-1] + c[:-2, 2:]
-        - 2 * c[1:-1, :-2] + 4 * c[1:-1, 1:-1] - 2 * c[1:-1, 2:]
-        + c[2:, :-2] - 2 * c[2:, 1:-1] + c[2:, 2:]
-    )
-    height, width = c.shape
-    return float(np.sqrt(np.pi / 2) * np.abs(response).sum() / (6 * (width - 2) * (height - 2)))
-
-
-def measure_color_noise(rgb):
-    """Estimate per-pixel colour noise of an RGB array (H x W x 3, float).
-
-    Real texture changes all three channels together, so it mostly cancels in
-    the colour differences R-G and B-G. Sensor-like or added noise is
-    independent per channel and survives there. Measuring noise on R-G and B-G
-    therefore separates noise from fine texture. Grayscale images score 0.
-    """
-    red, green, blue = rgb[..., 0], rgb[..., 1], rgb[..., 2]
-    return (_immerkaer_noise_sigma(red - green) + _immerkaer_noise_sigma(blue - green)) / 2
-
-
-def _edge_step_profile(gray):
-    """Mean absolute step between pixel p and p+1, for each position p (both axes pooled)."""
-    horizontal = np.abs(np.diff(gray, axis=1)).mean(axis=0)
-    vertical = np.abs(np.diff(gray, axis=0)).mean(axis=1)
-    return (horizontal + vertical) / 2
-
-
-def measure_jpeg_blockiness(gray, eps=0.5):
-    """How much stronger edges are on the 8x8 JPEG block grid than inside blocks.
-
-    Heavy JPEG compression makes each 8x8 block flat on its own, so steps appear
-    at the block borders. Values near 1 mean no visible blocks; clearly above 1
-    means block artifacts. Comparing with the strongest inside position keeps
-    pixelated images (whose steps also fall inside 8x8 blocks) from scoring here.
-    """
-    profile = _edge_step_profile(gray)
-    position = np.arange(len(profile)) % 8
-    border = profile[position == 7].mean()
-    strongest_inside = max(profile[position == offset].mean() for offset in range(7))
-    return float((border + eps) / (strongest_inside + eps))
-
-
-def measure_pixelation(gray, factors=range(2, 8), eps=0.5):
-    """Detect nearest-neighbour upscaling (images made of f x f pixel blocks).
-
-    For each block size f, compare the typical step at block borders with the
-    typical step inside blocks; pixelated images have steps only at borders.
-    Medians over positions ignore single strong edges such as frame borders.
-    Returns the largest ratio over f (about 1 = not pixelated).
-    """
-    profile = _edge_step_profile(gray)
-    index = np.arange(len(profile))
-    best = 1.0
-    for factor in factors:
-        border = (index + 1) % factor == 0
-        ratio = (np.median(profile[border]) + eps) / (np.median(profile[~border]) + eps)
-        best = max(best, float(ratio))
-    return best
-
-
 def get_image_stats(filename, images_dir=IMAGES_DIR):
     """Return the image-quality metrics of one image as a dict (values None if unreadable)."""
     try:
@@ -241,23 +174,48 @@ def get_image_stats(filename, images_dir=IMAGES_DIR):
     }
 
 
-def iqr_cutoffs(values, log_scale=False, k=1.5):
-    """Return (low, high) outlier cutoffs using the boxplot (Tukey IQR) rule.
+def degradation_check(filenames, images_dir=IMAGES_DIR, noise_sigma=15, pixel_size=16,
+                      jpeg_quality=10, seed=0):
+    """Degrade images on purpose and report the median noise, pixelation and blockiness.
 
-    A value is an outlier when it lies more than ``k`` x IQR below the 25th
-    percentile (Q1) or above the 75th percentile (Q3). With ``log_scale`` the
-    rule is applied to log10 of the values and the cutoffs are converted back,
-    which suits metrics that span several orders of magnitude (sharpness).
+    Each image is scored as is, with Gaussian noise added (``noise_sigma``),
+    shrunk to ``pixel_size`` x ``pixel_size`` and enlarged back with
+    nearest-neighbour resizing, and re-saved at JPEG ``jpeg_quality``. A metric
+    works when its median rises clearly for the matching degradation only.
     """
-    values = pd.Series(values, dtype=float).dropna()
-    if log_scale:
-        values = np.log10(values.clip(lower=1e-6))
-    q1, q3 = values.quantile([0.25, 0.75])
-    iqr = q3 - q1
-    low, high = q1 - k * iqr, q3 + k * iqr
-    if log_scale:
-        low, high = 10 ** low, 10 ** high
-    return float(low), float(high)
+    rng = np.random.default_rng(seed)
+
+    def scores(image):
+        rgb = np.asarray(image, dtype=np.float32)
+        gray = np.asarray(image.convert("L"), dtype=np.float32)
+        return {
+            "noise": measure_color_noise(rgb),
+            "pixelation": measure_pixelation(gray),
+            "blockiness": measure_jpeg_blockiness(gray),
+        }
+
+    rows = []
+    for filename in filenames:
+        with Image.open(Path(images_dir) / str(filename)) as image:
+            clean = image.convert("RGB")
+        noisy = np.asarray(clean, dtype=np.float32) + rng.normal(0, noise_sigma, (*clean.size[::-1], 3))
+        noisy = Image.fromarray(np.clip(noisy, 0, 255).astype(np.uint8))
+        pixelated = clean.resize((pixel_size, pixel_size), Image.BILINEAR).resize(clean.size, Image.NEAREST)
+        buffer = io.BytesIO()
+        clean.save(buffer, format="JPEG", quality=jpeg_quality)
+        buffer.seek(0)
+        with Image.open(buffer) as compressed:
+            compressed = compressed.convert("RGB")
+        for version, image in [
+            ("clean", clean),
+            (f"Gaussian noise (sigma = {noise_sigma})", noisy),
+            (f"pixelated ({pixel_size}x{pixel_size} enlarged)", pixelated),
+            (f"re-saved at JPEG quality {jpeg_quality}", compressed),
+        ]:
+            rows.append({"version": version, **scores(image)})
+    medians = pd.DataFrame(rows).groupby("version", sort=False).median()
+    medians.columns = [f"median {column}" for column in medians.columns]
+    return medians
 
 
 def _format_cutoff(value):
@@ -389,6 +347,80 @@ def show_outliers(df_subset, title, metric=None, n_cols=8, images_dir=IMAGES_DIR
             caption += f"\n{metric}: {_format_cutoff(row[metric])}"
         ax.set_title(caption, fontsize=7)
     fig.suptitle(title, fontsize=11, fontweight="bold")
+    fig.tight_layout()
+    plt.show()
+
+
+def show_image_grid(df_subset, captions, title, images_dir, n_cols=8):
+    """Show the images of ``df_subset`` (a ``filename`` column) with one caption each."""
+    if df_subset.empty:
+        print(f"No images to display for: {title}")
+        return
+    n_rows = int(np.ceil(len(df_subset) / n_cols))
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(2 * n_cols, 2.4 * n_rows), squeeze=False)
+    for ax in axes.flat:
+        ax.axis("off")
+    for ax, filename, caption in zip(axes.flat, df_subset["filename"], captions):
+        with Image.open(Path(images_dir) / str(filename)) as image:
+            ax.imshow(image.convert("RGB"))
+        ax.set_title(caption, fontsize=7)
+    fig.suptitle(title, fontsize=11, fontweight="bold")
+    fig.tight_layout()
+    plt.show()
+
+
+def show_before_after(rows, before_dir, after_dir, title, metric=None, n=8, seed=0):
+    """Top row: images before a step; bottom row: the same images after it.
+
+    With ``metric``, each caption shows the ``<metric>_before`` / ``<metric>_after``
+    column of ``rows``; without it, the caption shows the file's colour mode.
+    """
+    if rows.empty:
+        print(f"No images to display for: {title}")
+        return
+    sample = rows.sample(n=n, random_state=seed) if len(rows) > n else rows
+    fig, axes = plt.subplots(2, len(sample), figsize=(2 * len(sample), 5), squeeze=False)
+    for col, (_, row) in enumerate(sample.iterrows()):
+        for line, (folder, when) in enumerate(((before_dir, "before"), (after_dir, "after"))):
+            ax = axes[line, col]
+            ax.axis("off")
+            with Image.open(Path(folder) / str(row["filename"])) as image:
+                mode = image.mode
+                ax.imshow(image.convert("RGB"))
+            caption = f"{when}: {mode}" if metric is None else f"{when}: {_format_cutoff(row[f'{metric}_{when}'])}"
+            if line == 0:
+                caption = f"{str(row['description'])[:16]}\n{caption}"
+            ax.set_title(caption, fontsize=7)
+    label = "" if metric is None else f" ({metric})"
+    fig.suptitle(f"{title}{label}: top = before, bottom = after", fontsize=11, fontweight="bold")
+    fig.tight_layout()
+    plt.show()
+
+
+def plot_before_after_distributions(evaluation, cutoffs,
+                                    panels=(("deblur", "sharpness", "low"), ("denoise", "noise", "high"))):
+    """For each fix, histogram its measure before and after on the images it changed (log scale).
+
+    The red line is the fitted cutoff: images on the flagged side are still flagged.
+    """
+    fig, axes = plt.subplots(1, len(panels), figsize=(6 * len(panels), 4), squeeze=False)
+    for ax, (fix, metric, side) in zip(axes.flat, panels):
+        rows = evaluation[evaluation["fixes_applied"].str.contains(fix)]
+        if rows.empty:
+            ax.set_title(f"{fix}: no images changed")
+            ax.axis("off")
+            continue
+        before, after = rows[f"{metric}_before"].clip(lower=0.01), rows[f"{metric}_after"].clip(lower=0.01)
+        bins = np.logspace(np.log10(min(before.min(), after.min())), np.log10(max(before.max(), after.max())), 50)
+        ax.hist(before, bins=bins, alpha=0.6, color="#C44E52", label=f"before (median {_format_cutoff(before.median())})")
+        ax.hist(after, bins=bins, alpha=0.6, color="#4C72B0", label=f"after (median {_format_cutoff(after.median())})")
+        cutoff = cutoffs[metric][0 if side == "low" else 1]
+        ax.axvline(cutoff, color="#D62728", linestyle="--", label=f"cutoff {_format_cutoff(cutoff)}")
+        ax.set_xscale("log")
+        ax.set_title(f"{metric.capitalize()} of the {len(rows):,} images changed by '{fix}'")
+        ax.set_xlabel(f"{metric} (log scale)")
+        ax.set_ylabel("Number of images")
+        ax.legend(fontsize=8)
     fig.tight_layout()
     plt.show()
 

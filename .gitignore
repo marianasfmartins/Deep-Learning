@@ -5,3 +5,5 @@ __pycache__/
 *.pkl
 splits/
 /scratch_cnn_tuning_runs/
+# ResNet-18 embeddings: recreated by notebook section 1.9.4 (127 MB, over GitHub limit)
+embeddings_resnet18.npz
